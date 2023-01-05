@@ -1,0 +1,28 @@
+{ ... }:
+
+{
+  programs.zsh = {
+    enable = true;
+ 
+    shellAliases = {
+      c = "clear";
+      g = "git";
+      y = "yarn";
+      e = "$EDITOR";
+    };
+    
+    sessionVariables = {
+      EDTIOR = "vim";
+    };
+    
+    history = {
+      ignoreDups = true;
+      ignoreSpace = true;
+      save = 1000000;
+      size = 1000000;
+      share = true;
+    };
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+  };
+}
