@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.zsh = {
@@ -11,10 +11,6 @@
       e = "$EDITOR";
     };
     
-    sessionVariables = {
-      EDTIOR = "vim";
-    };
-    
     history = {
       ignoreDups = true;
       ignoreSpace = true;
@@ -22,7 +18,15 @@
       size = 1000000;
       share = true;
     };
+
+    # Plugins
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
+  };
+
+  programs.mcfly = {
+    enable = true;
+    enableZshIntegration = true;
+    keyScheme = "vim";
   };
 }

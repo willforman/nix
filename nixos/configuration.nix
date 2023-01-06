@@ -86,9 +86,12 @@
 
   time.timeZone = "Americas/Chicago";
 
+  # Keep laptop running when lid is shut
   services.logind.extraConfig = ''
     HandleLidSwitch=ignore
   '';
+
+  environment.variables.EDITOR = "vim";
 
   system.stateVersion = "22.11";
 }
