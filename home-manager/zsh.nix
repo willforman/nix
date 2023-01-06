@@ -9,6 +9,7 @@
       g = "git";
       y = "yarn";
       e = "$EDITOR";
+      ls = "ls --color=auto";
     };
     
     history = {
