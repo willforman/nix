@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    unstable.neovim
+  ];
 }
