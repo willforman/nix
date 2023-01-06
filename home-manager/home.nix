@@ -46,11 +46,11 @@
     userEmail = "wf8581@gmail.com";
   };
 
-  programs.tmux.enable = true;
-  programs.lazygit.enable = true;
-
   home.packages = with pkgs; [
+    tmux
+    lazygit
     difftastic
+    manix
   ];
 
   # Nicely reload system units when changing configs
