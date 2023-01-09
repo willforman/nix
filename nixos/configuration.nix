@@ -74,6 +74,8 @@
     passwordAuthentication = false;
   };
 
+  systemd.services.iwd.serviceConfig.ExecStartPre = "${pkgs.coreutils}/bin/sleep 1";
+
   networking = {
     hostName = "dev-wf";
     wireless.iwd = {
