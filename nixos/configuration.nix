@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -7,6 +7,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
+    ./network.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -24,6 +25,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+      outputs.overlays.unstable
     ];
     # Configure your nixpkgs instance
     config = {
