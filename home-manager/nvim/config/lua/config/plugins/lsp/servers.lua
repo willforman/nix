@@ -23,6 +23,7 @@ M.servers = {
       vim.fn.expand("~/.local/share/nvim/elixir-ls/language_server.sh")
     }
   },
+  nil_ls = {},
 }
 
 return M

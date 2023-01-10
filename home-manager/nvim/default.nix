@@ -7,6 +7,8 @@
 
     extraPackages = with pkgs; [
       gcc
+      nil
+      sumneko-lua-language-server
     ];
   };
 
