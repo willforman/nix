@@ -54,6 +54,15 @@
     manix
   ];
 
+  programs.tmux = {
+    enable = true;
+
+    escapeTime = 0;
+    historyLimit = 50000;
+    keyMode = "vi";
+    aggressiveResize = true;
+  };
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
