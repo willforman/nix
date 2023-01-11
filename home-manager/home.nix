@@ -52,6 +52,7 @@
     lazygit
     difftastic
     manix
+    tealdeer
   ];
 
   programs.tmux = {
