@@ -10,19 +10,11 @@
     passwordAuthentication = false;
   };
 
-  systemd.services.iwd.serviceConfig.ExecStartPre = "${pkgs.coreutils}/bin/sleep 1";
-
   networking = {
     hostName = "dev-wf";
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        General.EnableNetworkConfiguration = true;
-      };
-    };
   };
 
-  time.timeZone = "Americas/Chicago";
+  time.timeZone = "Americas/Indianapolis";
 
   # Keep laptop running when lid is shut
   services.logind.extraConfig = ''
