@@ -19,15 +19,17 @@
 
     overlays = import ./overlays { inherit inputs; };
    
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      dev-wf = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+    nixosConfigurations = 
+      let mkHost = system: hostname: nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./nixos/common.nix
+          ./nixos/${hostname}
+        ];
       };
-    };
+      in {
+        dev = mkHost "x86_64-linux" "dev";
+      };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
