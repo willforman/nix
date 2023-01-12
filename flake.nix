@@ -15,12 +15,12 @@
     let
       inherit (self) outputs;
     in
-    rec {
+    {
 
     overlays = import ./overlays { inherit inputs; };
    
     nixosConfigurations = 
-      let mkHost = system: hostname: nixpkgs.lib.nixosSystem {
+      let mkHost = hostname: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/common.nix
@@ -28,18 +28,20 @@
         ];
       };
       in {
-        dev = mkHost "x86_64-linux" "dev";
+        dev = mkHost "dev";
       };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "will@dev-wf" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs outputs; }; # Pass flake inputs to our config
-        # > Our main home-manager configuration file <
-        modules = [ ./home-manager/home.nix ];
+    homeConfigurations = 
+      let mkHost = system: hostname: home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          ./home-manager/common
+          ./home-manager/${hostname}
+        ];
       };
-    };
+      in {
+        will = mkHost "x86_64-linux" "will";
+      };
   };
 }
