@@ -9,9 +9,12 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, ... }@inputs: 
     let
       inherit (self) outputs;
     in
@@ -25,6 +28,8 @@
         modules = [
           ./nixos/common.nix
           ./nixos/${hostname}
+
+          agenix.nixosModule
         ];
       };
       in {
