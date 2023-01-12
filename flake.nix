@@ -41,7 +41,7 @@
         ];
       };
       in {
-        will = mkHost "x86_64-linux" "will";
+        dev = mkHost "x86_64-linux" "dev";
       };
   };
 }
