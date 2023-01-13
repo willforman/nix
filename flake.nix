@@ -2,19 +2,20 @@
   description = "My nix config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    darwin.url = "github:lnl7/nix-darwin/master";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, ... }@inputs: 
     let
       inherit (self) outputs;
     in
@@ -26,8 +27,9 @@
       let mkHost = hostname: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./nixos/common.nix
-          ./nixos/${hostname}
+          ./os/common.nix
+          ./os/nixos/common.nix
+          ./os/nixos/${hostname}
 
           agenix.nixosModule
         ];
@@ -47,6 +49,20 @@
       };
       in {
         dev = mkHost "x86_64-linux" "dev";
+      };
+
+    darwinConfigurations = 
+      let mkHost = hostname: darwin.lib.darwinSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./os/darwin/common.nix
+          ./os/darwin/${hostname}
+
+          agenix.nixosModule
+        ];
+      };
+      in {
+        mbp = mkHost "mbp";
       };
   };
 }
