@@ -29,6 +29,10 @@
     wget
   ];
 
+  fonts.fonts = with pkgs; [
+    jetbrains-mono
+  ];
+
   environment.variables.EDITOR = "vim";
 
   age = {

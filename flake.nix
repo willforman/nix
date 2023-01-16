@@ -49,7 +49,7 @@
       };
       in {
         dev = mkHost "x86_64-linux" "dev";
-        mbp = mkHost "aarch64-darwin" "dev";
+        mbp = mkHost "aarch64-darwin" "mbp";
       };
 
     darwinConfigurations = 

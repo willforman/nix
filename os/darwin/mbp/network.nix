@@ -9,20 +9,20 @@ let
 in
 {
 
-  networking.wireguard.interfaces = {
-    wg0 = {
-      ips = [ wireGuard.ip ];
-      listenPort = wireGuard.port;
-      privateKeyFile = wireGuard.path + "private";
-
-      peers = [
-        {
-          publicKey = "ITHN5/JXMjWLeFOhSf4dnNu1eIDqNByjH5XrrZeXH3o=";
-          allowedIPs = [ "10.100.0.1/32" ];
-          endpoint = "${wireGuard.ip}" + ":" + toString wireGuard.port;
-          persistentKeepAlive = 25;
-        }
-      ];
-    };
-  };
+  # networking.wireguard.interfaces = {
+  #   wg0 = {
+  #     ips = [ wireGuard.ip ];
+  #     listenPort = wireGuard.port;
+  #     privateKeyFile = wireGuard.path + "private";
+  #
+  #     peers = [
+  #       {
+  #         publicKey = "ITHN5/JXMjWLeFOhSf4dnNu1eIDqNByjH5XrrZeXH3o=";
+  #         allowedIPs = [ "10.100.0.1/32" ];
+  #         endpoint = "${wireGuard.ip}" + ":" + toString wireGuard.port;
+  #         persistentKeepAlive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
 }
