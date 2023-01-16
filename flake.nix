@@ -53,6 +53,7 @@
 
     darwinConfigurations = 
       let mkHost = hostname: darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./os/darwin/common.nix

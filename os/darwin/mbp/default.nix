@@ -1,6 +1,9 @@
 { inputs, outputs, lib, config, pkgs, ... }: 
 
 {
+  imports = [
+    ./network.nix
+  ];
   services.yabai = {
     enable = true;
 

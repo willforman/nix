@@ -19,17 +19,10 @@ in
         {
           publicKey = "ITHN5/JXMjWLeFOhSf4dnNu1eIDqNByjH5XrrZeXH3o=";
           allowedIPs = [ "10.100.0.1/32" ];
-          endpoint = "${wireGuard.ip}" + ":" + "${wireGuard.port}";
+          endpoint = "${wireGuard.ip}" + ":" + toString wireGuard.port;
           persistentKeepAlive = 25;
         }
       ];
     };
-  };
-
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ ];
-    allowedUDPPorts = [ wireGuard.port ];
-    allowedTCPPorts = [ ];
   };
 }
