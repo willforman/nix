@@ -1,14 +1,44 @@
 { config, pkgs, lib, ... }:
 
+let 
+  ethInterfaceName = "enp0s20f0u2";
+  wireGuard = {
+    port = 51820;
+    path = config.users.users.will.home + "/.local/share/wireguard/";
+  };
+in
 {
-  services.tailscale = {
+  networking.nat = {
     enable = true;
+    externalInterface = ethInterfaceName;
+    internalInterfaces = [ "wg0" ];
   };
 
-  environment.systemPackages = [ pkgs.tailscale ];
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.100.0.1/24" ];
+      listenPort = wireGuard.port;
+      privateKeyFile = wireGuard.path + "private";
+
+      postSetup = ''
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
+      '';
+
+      postShutdown = ''
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
+      '';
+
+      peers = [
+        {
+          publicKey = "Re8xcM/UKyhGNGpvyByPzReXqxgbTXfIi2aDjshXJ30=";
+          allowedIPs = [ "10.100.0.2/32" ];
+        }
+      ];
+    };
+  };
 
   services.adguardhome = {
-    enable = true;
+    enable = false;
     mutableSettings = false;
 
     settings = {
@@ -29,20 +59,8 @@
 
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ 
-      "tailscale0"
-      "enp0s20f0u2"
-    ];
-    allowedUDPPorts = [ 
-      config.services.tailscale.port
-      config.services.adguardhome.settings.dns.port
-    ];
-    allowedTCPPorts = [ 
-      22
-      config.services.adguardhome.settings.bind_port
-    ];
-    
-    # Got warning: "Tailscale reverse path filtering breaks tailscale exit node use and some subnet routing setups"
-    checkReversePath = "loose";
+    trustedInterfaces = [ ];
+    allowedUDPPorts = [ wireGuard.port ];
+    allowedTCPPorts = [ 22 ];
   };
 }
