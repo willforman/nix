@@ -27,7 +27,7 @@
       let mkHost = hostname: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./os/common.nix
+          ./os/lib/common.nix
           ./os/nixos/common.nix
           ./os/nixos/${hostname}
 
@@ -57,6 +57,7 @@
         system = "aarch64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
+          ./os/lib/common.nix
           ./os/darwin/common.nix
           ./os/darwin/${hostname}
 

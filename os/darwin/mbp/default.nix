@@ -3,6 +3,7 @@
 {
   imports = [
     ./network.nix
+    ../../lib/graphical_apps.nix
   ];
   services.yabai = {
     enable = true;
