@@ -43,7 +43,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
-          ./home-manager/common
+          ./home-manager/lib/common.nix
           ./home-manager/${hostname}
         ];
       };
