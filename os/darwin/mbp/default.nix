@@ -5,6 +5,11 @@
     ./network.nix
     ../../lib/graphical_apps.nix
   ];
+
+  environment.systemPackages = with pkgs; [
+    wireguard-tools
+  ];
+  
   services.yabai = {
     enable = true;
 

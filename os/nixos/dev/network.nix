@@ -14,9 +14,9 @@ in
     internalInterfaces = [ "wg0" ];
   };
 
-  networking.wireguard.interfaces = {
+  networking.wg-quick.interfaces = {
     wg0 = {
-      ips = [ "10.100.0.1/24" ];
+      address = [ "10.0.0.1/24" ];
       listenPort = wireGuard.port;
       privateKeyFile = wireGuard.path + "private";
 
@@ -31,7 +31,7 @@ in
       peers = [
         {
           publicKey = "Re8xcM/UKyhGNGpvyByPzReXqxgbTXfIi2aDjshXJ30=";
-          allowedIPs = [ "10.100.0.2/32" ];
+          allowedIPs = [ "10.0.0.2/32" ];
         }
       ];
     };
