@@ -18,7 +18,7 @@ in
         {
           publicKey = "ITHN5/JXMjWLeFOhSf4dnNu1eIDqNByjH5XrrZeXH3o=";
           allowedIPs = [ "10.0.0.1/32" ];
-          endpoint = "10.0.0.1:" + toString wireGuard.port;
+          endpoint = "192.168.0.7:" + toString wireGuard.port;
           persistentKeepalive = 25;
         }
       ];
