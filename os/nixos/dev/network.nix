@@ -59,7 +59,7 @@ in
   };
 
   networking.firewall = {
-    enable = false;
+    enable = true;
     trustedInterfaces = [ "wg0" ];
     allowedUDPPorts = [ wireGuard.port ];
     allowedTCPPorts = [ 22 ];
