@@ -19,6 +19,7 @@
       "betterdisplay"
       "spotify"
       "bitwarden"
+      "obsidian"
     ];
   };
 }

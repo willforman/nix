@@ -45,4 +45,20 @@
       window_topmost = "off";
     };
   };
+
+  services.skhd = {
+    enable = true;
+
+    skhdConfig = ''
+    # move to other window
+    alt - h: yabai -m window --focus west
+    alt - j: yabai -m window --focus south
+    alt - k: yabai -m window --focus north
+    alt - l: yabai -m window --focus east
+
+    # swap windows
+    alt - i : yabai -m window --swap west
+    alt - o : yabai -m window --swap east
+    '';
+  };
 }
