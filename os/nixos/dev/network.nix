@@ -18,18 +18,19 @@ in
     wg0 = {
       address = [ "10.0.0.1/24" ];
       listenPort = wireGuard.port;
-      privateKeyFile = wireGuard.path + "private";
+      privateKeyFile = "/home/will/.local/share/wireguard/private";#wireGuard.path + "private";
 
-      postSetup = ''
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
+      postUp = ''
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
       '';
 
-      postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
+      postDown = ''
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
       '';
 
       peers = [
         {
+          # mbp
           publicKey = "Re8xcM/UKyhGNGpvyByPzReXqxgbTXfIi2aDjshXJ30=";
           allowedIPs = [ "10.0.0.2/32" ];
         }
@@ -58,8 +59,8 @@ in
   };
 
   networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ ];
+    enable = false;
+    trustedInterfaces = [ "wg0" ];
     allowedUDPPorts = [ wireGuard.port ];
     allowedTCPPorts = [ 22 ];
   };
