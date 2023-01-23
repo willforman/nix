@@ -45,6 +45,10 @@
     enable = true;
     userName = "willforman";
     userEmail = "wf8581@gmail.com";
+
+    extraConfig = {
+      pull.ff = true;
+    };
   };
 
   home.packages = with pkgs; [
