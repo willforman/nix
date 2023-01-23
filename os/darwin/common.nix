@@ -20,6 +20,7 @@
       "spotify"
       "bitwarden"
       "obsidian"
+      "anki"
     ];
   };
 }
