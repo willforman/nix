@@ -53,4 +53,8 @@
     color17 #f97583
     '';
   };
+
+  home.packages = with pkgs; [
+    vscode
+  ];
 }
