@@ -21,6 +21,7 @@
       "bitwarden"
       "obsidian"
       "anki"
+      "numi"
     ];
   };
 }
