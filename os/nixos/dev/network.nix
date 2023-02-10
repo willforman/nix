@@ -60,8 +60,9 @@ in
 
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "wg0" ];
-    allowedUDPPorts = [ wireGuard.port ];
+    trustedInterfaces = [ "wg0" "tailscale0" ];
+    allowedUDPPorts = [ wireGuard.port config.services.tailscale.port ];
     allowedTCPPorts = [ 22 ];
+    checkReversePath = "loose";
   };
 }
