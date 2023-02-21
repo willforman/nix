@@ -14,7 +14,7 @@
     hostName = "dev-wf";
   };
 
-  time.timeZone = "Americas/Indianapolis";
+  time.timeZone = "America/New_York";
 
   # Keep laptop running when lid is shut
   services.logind.extraConfig = ''
