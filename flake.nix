@@ -36,6 +36,7 @@
       };
       in {
         dev = mkHost "dev";
+        desktop = mkHost "desktop";
       };
 
     homeConfigurations = 
@@ -50,6 +51,7 @@
       in {
         dev = mkHost "x86_64-linux" "dev";
         mbp = mkHost "aarch64-darwin" "mbp";
+        desktop = mkHost "x86_64-linux" "desktop";
       };
 
     darwinConfigurations = 

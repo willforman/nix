@@ -1,7 +1,16 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ../../lib/graphical_apps.nix
   ];
+
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+  hardware.enableAllFirmware = true;
+ 
+  security.polkit.enable = true;
+
+  boot.kernelPackages = pkgs.unstable.linuxPackages_6_1;
 
   services.openssh = {
     enable = true;
@@ -10,13 +19,8 @@
   };
 
   networking = {
-    hostName = "dev-wf";
+    hostName = "desktop-wf";
   };
 
   time.timeZone = "America/New_York";
-
-  # Keep laptop running when lid is shut
-  services.logind.extraConfig = ''
-    HandleLidSwitch=ignore
-  '';
 }
