@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     obsidian
+    pcmanfm
     # Sway
     swaylock
   ];
