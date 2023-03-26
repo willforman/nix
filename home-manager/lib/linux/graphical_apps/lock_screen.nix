@@ -2,9 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    obsidian
-    pcmanfm
-    # Sway
     swaylock
   ];
 
@@ -17,16 +14,12 @@
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.wayland}/bin/swaylock";
+        command = "${pkgs.swaylock}/bin/swaylock";
       }
     ];
     timeouts = [
       {
-        timeout = 120;
-        command = "${pkgs.swaylock}/bin/swaylock";
-      }
-      {
-        timeout = 240;
+        timeout = 300;
         command = "${pkgs.systemd}/bin/systemctl suspend";
       }
     ];
