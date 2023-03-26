@@ -4,10 +4,16 @@
     ../lib/graphical_apps
   ];
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
   hardware.enableAllFirmware = true;
- 
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+  
+  security.rtkit.enable = true;
   security.polkit.enable = true;
 
   boot.kernelPackages = pkgs.unstable.linuxPackages_6_1;
