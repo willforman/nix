@@ -13,14 +13,4 @@
   environment.systemPackages = with pkgs; [
     glfw-wayland
   ];
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = "${pkgs.sway}/bin/sway";
-        user = "will";
-      };
-    };
-  };
 }

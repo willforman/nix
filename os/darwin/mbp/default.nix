@@ -3,7 +3,6 @@
 {
   imports = [
     ./network.nix
-    ../../lib/graphical_apps.nix
   ];
 
   environment.systemPackages = with pkgs; [

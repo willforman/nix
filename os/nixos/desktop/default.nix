@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ../../lib/graphical_apps.nix
+    ../lib/graphical_apps
   ];
 
   sound.enable = true;

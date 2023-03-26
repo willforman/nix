@@ -2,6 +2,7 @@
 {
   imports = [
     ../lib/graphical_apps.nix
+    ../lib/linux/graphical_apps.nix
   ];
   
   wayland.windowManager.sway = {
