@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./sway.nix
     ./lock_screen.nix
   ];
 
