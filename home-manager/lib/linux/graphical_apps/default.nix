@@ -7,9 +7,12 @@
   ];
 
   home.packages = with pkgs; [
+    firefox-wayland
     obsidian
     pcmanfm
     thunderbird
+    anki-bin
+    zathura
   ];
 
   services.gammastep = {

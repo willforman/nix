@@ -57,6 +57,9 @@
     difftastic
     manix
     tealdeer
+    btop
+    zip
+    unzip
   ];
 
   programs.tmux = {

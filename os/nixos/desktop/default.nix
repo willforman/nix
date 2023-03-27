@@ -13,7 +13,6 @@
     pulse.enable = true;
   };
 
-  networking.wireless.enable = true;
   hardware.bluetooth = {
     enable = true;
     disabledPlugins = [ "sap" ];
@@ -24,7 +23,7 @@
   security.rtkit.enable = true;
   security.polkit.enable = true;
 
-  boot.kernelPackages = pkgs.unstable.linuxPackages_6_1;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
 
   services.openssh = {
     enable = true;

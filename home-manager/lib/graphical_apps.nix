@@ -54,8 +54,6 @@
     '';
   };
 
-  programs.firefox.enable = true; # if you want to configure firefox
-
   home.packages = with pkgs; [
     vscode
     obsidian
