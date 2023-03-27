@@ -13,11 +13,11 @@
     pulse.enable = true;
   };
 
+  networking.wireless.enable = true;
   hardware.bluetooth = {
     enable = true;
     disabledPlugins = [ "sap" ];
   };
-  networking.wireless.enable = true;
 
   services.blueman.enable = true;
   
