@@ -12,6 +12,14 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  hardware.bluetooth = {
+    enable = true;
+    disabledPlugins = [ "sap" ];
+  };
+  networking.wireless.enable = true;
+
+  services.blueman.enable = true;
   
   security.rtkit.enable = true;
   security.polkit.enable = true;

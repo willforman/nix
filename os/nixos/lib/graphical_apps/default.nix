@@ -3,6 +3,9 @@
 {
   fonts.fonts = with pkgs; [
     jetbrains-mono
+    gyre-fonts
+    libertinus
+    noto-fonts-emoji
   ];
 
   hardware.opengl = {
@@ -13,6 +16,8 @@
   security.pam.services.swaylock = {
     text = "auth include login";
   };
+
+  services.geoclue2.enable = true;
 
   environment.systemPackages = with pkgs; [
     glfw-wayland

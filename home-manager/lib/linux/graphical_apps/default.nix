@@ -9,5 +9,11 @@
   home.packages = with pkgs; [
     obsidian
     pcmanfm
+    thunderbird
   ];
+
+  services.gammastep = {
+    enable = true;
+    provider = "geoclue2";
+  };
 }
