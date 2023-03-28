@@ -24,6 +24,7 @@ M.servers = {
     }
   },
   nil_ls = {},
+  bashls = {},
 }
 
 return M

@@ -1,6 +1,9 @@
 { lib, config, pkgs, ... }: 
 
 {
+  imports = [
+    ./virtual_machines.nix
+  ];
   fonts.fonts = with pkgs; [
     jetbrains-mono
     gyre-fonts

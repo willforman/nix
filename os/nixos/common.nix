@@ -10,7 +10,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEd+kmG9ScsNZZtqNRnhsBIBBSM5sv/ma8cuHTjGU6UQ wf8581@gmail.com"
       ];
-      extraGroups = [ "wheel" "docker" "sound" ];
+      extraGroups = [ "wheel" "docker" "sound" "libvirtd" ];
       shell = pkgs.zsh;
     };
   };

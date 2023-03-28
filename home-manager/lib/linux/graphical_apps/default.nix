@@ -13,6 +13,7 @@
     thunderbird
     anki-bin
     zathura
+    feh
   ];
 
   services.gammastep = {

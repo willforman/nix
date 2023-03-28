@@ -34,12 +34,16 @@
     };
   };
 
+  programs.home-manager.enable = true;
+  home.stateVersion = "22.11";
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
   home = {
     username = "will";
     homeDirectory = "/home/will";
   };
-
-  programs.home-manager.enable = true;
 
   programs.git = {
     enable = true;
@@ -52,7 +56,6 @@
   };
 
   home.packages = with pkgs; [
-    tmux
     lazygit
     difftastic
     manix
@@ -71,15 +74,10 @@
     aggressiveResize = true;
   };
 
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
-
   programs.direnv = {
     enable = true;
     nix-direnv = {
       enable = true;
     };
   };
-
-  home.stateVersion = "22.11";
 }

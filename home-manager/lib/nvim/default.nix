@@ -10,6 +10,7 @@
       gcc
       nil
       sumneko-lua-language-server
+      nodePackages.bash-language-server
     ];
 
     plugins = with pkgs.unstable.vimPlugins; [
@@ -30,6 +31,7 @@
           rust
           typescript
           tsx
+          bash
         ]
       ))
     ];
