@@ -25,4 +25,9 @@
   environment.systemPackages = with pkgs; [
     glfw-wayland
   ];
+
+  programs.sway = {
+    enable = true;
+    extraPackages = with pkgs; [ unstable.swaylock-effects ];
+  };
 }

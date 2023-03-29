@@ -1,12 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.packages = with pkgs; [
-    swaylock
-  ];
-
   programs.swaylock.settings = {
-    color = "000000";
+    image = "~/.config/sway/wallpapers/wallpaper.jpeg";
+    clock = true;
+    effect-blur = "7x5";
+    indicator-idle-visible = true;
   };
 
   services.swayidle = {
@@ -14,7 +13,7 @@
     events = [
       {
         event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock";
+        command = "${pkgs.swaylock-effects}/bin/swaylock";
       }
     ];
     timeouts = [
