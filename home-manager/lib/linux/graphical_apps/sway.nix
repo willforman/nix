@@ -25,6 +25,12 @@
         inner = 10;
         outer = 5;
       };
+      input = {
+        "12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I" = {
+          repeat_delay = "300";
+          repeat_rate = "30";
+        };
+      };
     };
     extraSessionCommands = ''
       export WLR_NO_HARDWARE_CURSORS=1
