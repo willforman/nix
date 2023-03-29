@@ -1,9 +1,12 @@
 { config, pkgs, lib, ... }:
 
+let 
+  enable = false;
+in
 {
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = enable;
 
-  programs.dconf.enable = true;
+  programs.dconf.enable = enable;
 
   environment.systemPackages = with pkgs; [
     unstable.virt-manager
