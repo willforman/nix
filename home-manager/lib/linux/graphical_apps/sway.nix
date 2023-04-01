@@ -1,10 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./lock_screen.nix
-  ];
-  
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -15,7 +11,7 @@
       bars = [];
       output = {
         DP-2 = {
-          scale = "1";
+          scale = "1.25";
           mode = "2560x1440@74.924Hz";
           adaptive_sync = "on";
           bg = "~/.config/sway/wallpapers/wallpaper.jpeg fit";
@@ -41,20 +37,7 @@
 
   xdg.configFile."sway/wallpapers".source = ./wallpapers;
 
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-    settings = {
-      mainBar = {
-        modules-left = [ "sway/workspaces" ];
-        modules-center = [ "sway/window" ];
-        modules-right = [ "temperature" "disk" "cpu" "memory" "clock" ];
-      };
-    };
-  };
-
   home.packages = with pkgs; [
-    waybar
     wofi
     mako
     wl-clipboard

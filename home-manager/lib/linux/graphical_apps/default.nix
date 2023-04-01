@@ -3,6 +3,7 @@
 {
   imports = [
     ./sway.nix
+    ./waybar
     ./lock_screen.nix
   ];
 
@@ -14,6 +15,7 @@
     anki-bin
     zathura
     feh
+    font-manager
   ];
 
   services.gammastep = {

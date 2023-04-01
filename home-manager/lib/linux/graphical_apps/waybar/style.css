@@ -1,0 +1,57 @@
+@define-color background #1a1c1e;
+@define-color on-background #e2e2e5;
+@define-color secondary-container #384956;
+
+* {
+  font-family: JetBrains Mono;
+  font-size: 15px;
+}
+
+window#waybar {
+  padding: 0;
+  margin: 0;
+  background-color: @background;
+  color: @on-background;
+}
+
+.modules-right {
+  margin-right: 7px;
+}
+
+#cpu,
+#memory {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  background-color: @secondary-container;
+}
+
+#cpu {
+  border-bottom-left-radius: 13px;
+  border-top-left-radius: 13px;
+  padding-left: 15px;
+  padding-right: 2px;
+}
+
+#memory {
+  border-bottom-right-radius: 13px;
+  border-top-right-radius: 13px;
+  padding-right: 15px;
+  padding-left: 2px;
+}
+
+#wireplumber {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#workspaces button {
+  color: @on-background;
+}
+
+#workspaces button.focused {
+  font-weight: 900;
+}
+
+#workspaces button:hover {
+  color: @background;
+}
