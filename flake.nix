@@ -13,9 +13,21 @@
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nix-doom-emacs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, agenix, ... }@inputs: 
+  outputs = { 
+    self, 
+    nixpkgs, 
+    nixpkgs-unstable, 
+    home-manager, 
+    darwin, 
+    agenix,
+    nix-doom-emacs,
+    ... 
+    }@inputs: 
     let
       inherit (self) outputs;
     in
@@ -46,6 +58,7 @@
         modules = [
           ./home-manager/lib/common.nix
           ./home-manager/${hostname}
+          nix-doom-emacs.hmModule
         ];
       };
       in {

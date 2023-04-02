@@ -9,6 +9,7 @@
 
     ./zsh
     ./nvim
+    ./emacs
   ];
 
   nixpkgs = {
@@ -23,7 +24,8 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      outputs.overlays.unstable
+      outputs.overlays.unstable-packages
+      outputs.overlays.emacs-overlay
     ];
     # Configure your nixpkgs instance
     config = {
