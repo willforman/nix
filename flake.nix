@@ -41,7 +41,7 @@
           ./os/nixos/common.nix
           ./os/nixos/${hostname}
 
-          agenix.nixosModule
+          agenix.nixosModules.default
         ];
       };
       in {
@@ -74,7 +74,7 @@
           ./os/darwin/common.nix
           ./os/darwin/${hostname}
 
-          agenix.nixosModule
+          agenix.nixosModules.default
         ];
       };
       in {
