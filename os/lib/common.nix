@@ -1,8 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   nixpkgs = {
-    overlays = [
-      outputs.overlays.unstable-packages
-    ];
+    overlays = [ ];
     config = {
       allowUnfree = true;
     };

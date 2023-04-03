@@ -2,10 +2,13 @@
 
 {
   programs.doom-emacs = {
-    enable = false;
+    enable = true;
     doomPrivateDir = ./doom.d;
-    emacsPackage = pkgs.emacsPgtk;
+    # emacsPackage = pkgs.emacsPgtk;
   };
 
-  services.emacs.enable = false;
+  services.emacs = {
+    enable = true;
+    # package = pkgs.emacsPgtk;
+  };
 }

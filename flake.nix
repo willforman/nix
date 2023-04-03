@@ -2,8 +2,7 @@
   description = "My nix config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -21,8 +20,7 @@
   outputs = { 
     self, 
     nixpkgs, 
-    nixpkgs-unstable, 
-    home-manager, 
+    home-manager,
     darwin, 
     agenix,
     nix-doom-emacs,

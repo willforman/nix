@@ -28,7 +28,7 @@
 
   programs.sway = {
     enable = true;
-    extraPackages = with pkgs; [ unstable.swaylock-effects ];
+    extraPackages = with pkgs; [ swaylock-effects ];
   };
 
   services.dbus.enable = true;

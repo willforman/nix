@@ -19,7 +19,7 @@
           format = "<b>{:%a %b %d %I:%M %p}</b>";
         };
         wireplumber = {
-          format = "{volume}% ";
+          format = "{volume}% {icon}";
           format-muted = "";
           format-icons = [ "" "" "" ];
         };

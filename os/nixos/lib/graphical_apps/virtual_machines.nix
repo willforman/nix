@@ -9,6 +9,6 @@ in
   programs.dconf.enable = enable;
 
   environment.systemPackages = with pkgs; [
-    unstable.virt-manager
+    virt-manager
   ];
 }
