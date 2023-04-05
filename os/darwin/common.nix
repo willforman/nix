@@ -22,6 +22,7 @@
       "obsidian"
       "anki"
       "numi"
+      "firefox"
     ];
   };
 }

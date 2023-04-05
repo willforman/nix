@@ -6,9 +6,4 @@
     doomPrivateDir = ./doom.d;
     # emacsPackage = pkgs.emacsPgtk;
   };
-
-  services.emacs = {
-    enable = true;
-    # package = pkgs.emacsPgtk;
-  };
 }
