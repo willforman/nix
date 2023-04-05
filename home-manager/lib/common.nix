@@ -73,6 +73,7 @@
     historyLimit = 50000;
     keyMode = "vi";
     aggressiveResize = true;
+    mouse = true;
   };
 
   programs.direnv = {

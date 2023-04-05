@@ -32,6 +32,7 @@
       export WLR_NO_HARDWARE_CURSORS=1
       export KITTY_ENABLE_WAYLAND=1
       export MOZ_ENABLE_WAYLAND=1
+      export NIXOS_OZONE_WL=1
     '';
   };
 
