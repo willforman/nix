@@ -7,6 +7,11 @@
     ./lock_screen.nix
   ];
 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  }
+
   home.packages = with pkgs; [
     firefox-wayland
     obsidian
