@@ -7,9 +7,10 @@
 
     extraPackages = with pkgs; [
       ripgrep
+      fd
       gcc
       nil
-      sumneko-lua-language-server
+      lua-language-server
       nodePackages.bash-language-server
     ];
 

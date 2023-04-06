@@ -74,6 +74,8 @@
     keyMode = "vi";
     aggressiveResize = true;
     mouse = true;
+    terminal = "screen-256color";
+    clock24 = false;
   };
 
   programs.direnv = {

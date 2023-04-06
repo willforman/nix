@@ -3,7 +3,6 @@ local M = {
   dependencies = {
     'nvim-telescope/telescope-file-browser.nvim'
   },
-  tag = '0.1.x',
 }
 
 function M.config()

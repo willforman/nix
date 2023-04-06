@@ -32,7 +32,7 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrains Mono:size=15";
+        font = "JetBrainsMono Nerd Font:size=15";
         dpi-aware = "yes";
       };
       colors = {
