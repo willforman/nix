@@ -53,9 +53,16 @@ in {
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
+    '';
+
+    initExtra = ''
       # Autosuggestions
       ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=80
       ZSH_AUTOSUGGEST_STRATEGY=(history)
+
+      if [[ $TERM = "foot" ]]; then
+        alias ssh='TERM=linux ssh'
+      fi
     '';
   };
 
