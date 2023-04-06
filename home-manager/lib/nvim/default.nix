@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 
+let
+  inherit (pkgs) stdenv;
+in
 {
   programs.neovim = {
     enable = true;
@@ -38,5 +41,10 @@
     ];
   };
 
-  home.file."./.config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home-manager/lib/nvim/config";
+  home.file."./.config/nvim".source = (if stdenv.isDarwin 
+    then
+      ./config
+    else
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix/home-manager/lib/nvim/config"
+  );
 }
