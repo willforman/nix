@@ -25,4 +25,12 @@
       "firefox"
     ];
   };
+
+  fonts = {
+    fontsDir.enable = true;
+
+    fonts = with pkgs; [
+      jetbrains-mono
+    ];
+  };
 }
