@@ -27,7 +27,7 @@
   };
 
   fonts = {
-    fontsDir.enable = true;
+    fontDir.enable = true;
 
     fonts = with pkgs; [
       jetbrains-mono
