@@ -1,59 +1,70 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.kitty = {
+  
+  programs.alacritty = {
     enable = true;
-    font = {
-      name = "JetBrains Mono";
-      size = 16;
+
+    settings = {
+      font = {
+        size = 16.0;
+        normal = {
+          family = "JetBrains Mono";
+          style = "Regular";
+        };
+        bold = {
+          family = "JetBrains Mono";
+          style = "Bold";
+        };
+        italic = {
+          family = "JetBrains Mono";
+          style = "Italic";
+        };
+        bold_italic = {
+          family = "JetBrains Mono";
+          style = "Bold Italic";
+        };
+      };
+      colors = {
+        primary = {
+          background = "0x24292e";     
+          foreground = "0xd1d5da";
+        };
+        normal = {
+          black = "0x586069";
+          red = "0xea4a5a";
+          green = "0x34d058";
+          yellow = "0xffea7f";
+          blue = "0x2188ff";
+          magenta = "0xb392f0";
+          cyan = "0x39c5cf";
+          white = "0xd1d5da";
+        };
+
+        bright = {
+          black = "0x959da5";
+          red = "0xf97583";
+          green = "0x85e89d";
+          yellow = "0xffea7f";
+          blue = "0x79b8ff";
+          magenta = "0xb392f0";
+          cyan = "0x56d4dd";
+          white = "0xfafbfc";
+        };
+        indexed_colors = [
+          { 
+            index = 16;
+            color = "0xd18616";
+          }
+          {
+            index = 17;
+            color = "0xf97583";
+          }
+        ];
+      };
     };
-
-    extraConfig = ''
-    # github colors for Kitty
-    background #24292e
-    foreground #d1d5da
-    selection_background #284566
-    selection_foreground #d1d5da
-    url_color #d1d5da
-    cursor #c8e1ff
-    cursor_text_color background
-
-    # Tabs
-    active_tab_background #2188ff
-    active_tab_foreground #1f2428
-    inactive_tab_background #666666
-    inactive_tab_foreground #1f2428
-
-    # Windows Border
-    active_border_color #444c56
-    inactive_border_color #444c56
-
-    # normal
-    color0 #586069
-    color1 #ea4a5a
-    color2 #34d058
-    color3 #ffea7f
-    color4 #2188ff
-    color5 #b392f0
-    color6 #39c5cf
-    color7 #d1d5da
-
-    # bright
-    color8 #959da5
-    color9 #f97583
-    color10 #85e89d
-    color11 #ffea7f
-    color12 #79b8ff
-    color13 #b392f0
-    color14 #56d4dd
-    color15 #fafbfc
-
-    # extended colors
-    color16 #ffea7f
-    color17 #f97583
-    '';
   };
-
+    
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
