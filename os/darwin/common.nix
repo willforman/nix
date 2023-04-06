@@ -1,4 +1,8 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
+  imports = [
+    ../lib/graphical_apps.nix
+  ];
+
   system.stateVersion = 4;
   services.nix-daemon.enable = true;
 
@@ -26,11 +30,5 @@
     ];
   };
 
-  fonts = {
-    fontDir.enable = true;
-
-    fonts = with pkgs; [
-      jetbrains-mono
-    ];
-  };
+  fonts.fontDir.enable = true;
 }

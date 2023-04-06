@@ -3,18 +3,7 @@
 {
   imports = [
     ./virtual_machines.nix
-  ];
-
-  fonts.fonts = with pkgs; [
-    jetbrains-mono
-    gyre-fonts
-    libertinus
-    font-awesome
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ../../../lib/graphical_apps.nix
   ];
 
   hardware.opengl = {
