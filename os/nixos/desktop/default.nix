@@ -4,13 +4,9 @@
     ../lib/graphical_apps
   ];
 
-  hardware.enableAllFirmware = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking = {
-    hostName = "desktop-wf";
-  };
+  networking.hostName = "desktop-wf";
 
   time.timeZone = "America/New_York";
+
+  hardware.enableAllFirmware = true;
 }
