@@ -71,6 +71,7 @@
     unzip
     ripgrep
     nnn
+    tree
   ];
 
   programs.tmux = {
