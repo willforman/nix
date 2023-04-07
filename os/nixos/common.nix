@@ -27,5 +27,13 @@
     };
   };
 
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedTCPPorts = [ 22 ];
+    checkReversePath = "loose";
+  };
+
   system.stateVersion = "22.11";
 }
