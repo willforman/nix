@@ -69,6 +69,8 @@
     btop
     zip
     unzip
+    ripgrep
+    nnn
   ];
 
   programs.tmux = {
