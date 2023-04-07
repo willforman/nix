@@ -3,12 +3,6 @@
     ./hardware-configuration.nix
   ];
 
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-  };
-
   networking = {
     hostName = "dev-wf";
   };
