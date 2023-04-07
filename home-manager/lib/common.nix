@@ -43,7 +43,12 @@
 
   home = {
     username = "will";
-    homeDirectory = "/home/will";
+    homeDirectory = (if pkgs.stdenv.isDarwin
+      then
+        "/Users/will"
+      else
+        "/home/will"
+    );
   };
 
   programs.git = {

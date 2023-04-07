@@ -5,7 +5,13 @@
     ../lib/graphical_apps.nix
   ];
 
-  home.packages = with pkgs; [
-    wireguard-tools
-  ];
+  home = {
+    sessionPath = [
+      # for darwin-rebuild
+      "${config.home.homeDirectory}/code/nix/build-darwin-result/sw/bin/"
+    ];
+    packages = with pkgs; [
+      wireguard-tools
+    ];
+  };
 }
