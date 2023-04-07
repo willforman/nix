@@ -28,4 +28,22 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    disabledPlugins = [ "sap" ];
+  };
+
+  services.blueman.enable = true;
+  
+  security.rtkit.enable = true;
+  security.polkit.enable = true;
 }
