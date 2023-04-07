@@ -1,1 +1,2 @@
 flake.lock
+home-manager/lib/nvim/config/lazy-lock.json
