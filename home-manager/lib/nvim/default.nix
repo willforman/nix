@@ -17,6 +17,7 @@ in
       nil
       lua-language-server
       nodePackages.bash-language-server
+      nodejs-16_x
     ];
 
     plugins = with pkgs.vimPlugins; [
