@@ -5,11 +5,7 @@ local M = {
 }
 
 function M.config()
-  require('gitsigns').setup({
-    yadm = {
-      enable = true
-    }
-  })
+  require('gitsigns').setup({})
 end
 
 return M
