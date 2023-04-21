@@ -1,7 +1,8 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: 
+let
+  username = "will";
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -40,13 +41,13 @@
   systemd.user.startServices = "sd-switch";
 
   home = {
-    username = "will";
+    username = username;
     homeDirectory = (if pkgs.stdenv.isDarwin
       then
-        "/Users/will"
+        "/Users"
       else
-        "/home/will"
-    );
+        "/home"
+    ) + "/${username}";
   };
 
   programs.git = {
