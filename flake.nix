@@ -12,12 +12,6 @@
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-doom-emacs.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { 
@@ -26,7 +20,6 @@
     home-manager,
     darwin, 
     agenix,
-    nix-doom-emacs,
     ... 
     }@inputs: 
     let
@@ -59,7 +52,6 @@
         modules = [
           ./home-manager/lib/common.nix
           ./home-manager/${hostname}
-          nix-doom-emacs.hmModule
         ];
       };
       in {
