@@ -19,9 +19,7 @@ M.servers = {
   html = {},
   cssls = {},
   elixirls = {
-    cmd = {
-      vim.fn.expand("~/.local/share/nvim/elixir-ls/language_server.sh")
-    }
+    cmd = { 'elixir-ls' },
   },
   nil_ls = {},
   bashls = {},

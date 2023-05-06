@@ -39,6 +39,7 @@ in
           typescript
           tsx
           bash
+          heex
         ]
       ))
     ];
