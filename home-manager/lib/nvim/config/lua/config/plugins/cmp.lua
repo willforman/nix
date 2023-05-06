@@ -29,7 +29,7 @@ function M.config()
       { name = 'nvim_lsp_signature_help' },
       { name = 'path'},
       { name = 'buffer'},
-      { name = 'copilot' },
+      -- { name = 'copilot' },
     }),
     mapping = cmp.mapping.preset.insert({
       ["<Tab>"] = cmp.mapping.confirm({ select = true }),
