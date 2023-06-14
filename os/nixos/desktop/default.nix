@@ -9,4 +9,6 @@
   time.timeZone = "America/New_York";
 
   hardware.enableAllFirmware = true;
+
+  networking.wireless.iwd.enable = true;
 }
