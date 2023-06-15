@@ -5,5 +5,9 @@
     ../lib/linux/graphical_apps
   ];
 
-  services.blueman-applet.enable = true;
+  services = {
+    blueman-applet.enable = true;
+
+    syncthing.enable = true;
+  };
 }
