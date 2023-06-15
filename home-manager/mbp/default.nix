@@ -14,4 +14,8 @@
       wireguard-tools
     ];
   };
+
+  services = {
+    syncthing.enable = true;
+  };
 }
