@@ -5,7 +5,7 @@ local M = {
 function M.config()
   require('lualine').setup({
     options = {
-      theme = 'auto'
+      theme = 'catppuccin'
     }
   })
 end
