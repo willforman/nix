@@ -66,6 +66,8 @@ in {
     '';
   };
 
+  xdg.configFile."fsh/catppuccin-mocha.ini".source = ./catppuccin-mocha.ini;
+
   programs.mcfly = {
     enable = true;
     enableZshIntegration = true;

@@ -27,38 +27,86 @@
       };
       colors = {
         primary = {
-          background = "0x24292e";     
-          foreground = "0xd1d5da";
+          background = "#1E1E2E";
+          foreground = "#CDD6F4";
+          dim_foreground = "#CDD6F4";
+          bright_foreground = "#CDD6F4";
         };
         normal = {
-          black = "0x586069";
-          red = "0xea4a5a";
-          green = "0x34d058";
-          yellow = "0xffea7f";
-          blue = "0x2188ff";
-          magenta = "0xb392f0";
-          cyan = "0x39c5cf";
-          white = "0xd1d5da";
+          black = "#45475A";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan = "#94E2D5";
+          white = "#BAC2DE";
+        };
+        bright = {
+          black = "#585B70";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan = "#94E2D5";
+          white = "#A6ADC8";
+        };
+        dim = {
+          black = "#45475A";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan = "#94E2D5";
+          white = "#BAC2DE";
+        };
+        selection = {
+          text = "#1E1E2E";
+          background = "#F5E0DC";
+        };
+        hints = {
+          start = {
+            foreground = "#1E1E2E";
+            background = "#F9E2AF";
+          };
+          end = {
+            foreground = "#1E1E2E";
+            background = "#A6ADC8";
+          };
+        };
+        cursor = {
+          text = "#1E1E2E";
+          cursor = "#F5E0DC";
+        };
+        vi_mode_cursor = {
+          text = "#1E1E2E";
+          cursor = "#B4BEFE";
+        };
+        search = {
+          matches = {
+            foreground = "#1E1E2E";
+            background = "#A6ADC8";
+          };
+          focused_match = {
+            foreground = "#1E1E2E";
+            background = "#A6E3A1";
+          };
+          footer_bar = {
+            foreground = "#1E1E2E";
+            background = "#A6ADC8";
+          };
         };
 
-        bright = {
-          black = "0x959da5";
-          red = "0xf97583";
-          green = "0x85e89d";
-          yellow = "0xffea7f";
-          blue = "0x79b8ff";
-          magenta = "0xb392f0";
-          cyan = "0x56d4dd";
-          white = "0xfafbfc";
-        };
         indexed_colors = [
           { 
             index = 16;
-            color = "0xd18616";
+            color = "#FAB387";
           }
           {
             index = 17;
-            color = "0xf97583";
+            color = "#F5E0DC";
           }
         ];
       };
