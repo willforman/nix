@@ -32,12 +32,4 @@
   };
 
   services.tailscale.enable = true;
-  networking = {
-    nameservers = [
-      "100.100.100.100"
-      "1.1.1.1"
-    ];
-
-    search = [ "tail8135e.ts.net" ];
-  };
 }
