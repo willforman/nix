@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     jetbrains-mono
     gyre-fonts
     libertinus
