@@ -46,18 +46,43 @@
       };
 
     homeConfigurations = 
-      let mkHost = system: hostname: home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [
-          ./home-manager/lib/common.nix
-          ./home-manager/${hostname}
-        ];
-      };
+      let mkHost = { system, hostname, username, homeDirectory }:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/lib/common.nix
+            ./home-manager/${hostname}
+            {
+              home = { inherit username homeDirectory; };
+            }
+          ];
+        };
       in {
-        dev = mkHost "x86_64-linux" "dev";
-        mbp = mkHost "aarch64-darwin" "mbp";
-        desktop = mkHost "x86_64-linux" "desktop";
+        dev = mkHost { 
+          system = "x86_64-linux";
+          hostname = "dev";
+          username = "will";
+          homeDirectory = "/home/will";
+        };
+        mbp = mkHost { 
+          system = "aarch64-darwin";
+          hostname = "mbp";
+          username = "will";
+          homeDirectory = "/Users/will";
+        };
+        desktop = mkHost { 
+          system = "x86_64-linux";
+          hostname = "desktop";
+          username = "will";
+          homeDirectory = "/home/will";
+        };
+        work = mkHost { 
+          system = "aarch64-darwin";
+          hostname = "work";
+          username = "wforman";
+          homeDirectory = "/Users/will";
+        };
       };
 
     darwinConfigurations = 

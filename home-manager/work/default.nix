@@ -3,8 +3,6 @@
 {
   imports = [
     ../lib/graphical_apps.nix
-    ../lib/non_work.nix
-    ../lib/non_work_graphical.nix
   ];
 
   home = {
@@ -15,12 +13,5 @@
       "/nix/var/nix/profiles/default/bin"
       "${config.home.homeDirectory}/.nix-profile/bin"
     ];
-    packages = with pkgs; [
-      wireguard-tools
-    ];
-  };
-
-  services = {
-    syncthing.enable = true;
   };
 }

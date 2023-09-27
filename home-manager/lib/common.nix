@@ -1,7 +1,4 @@
 { inputs, outputs, lib, config, pkgs, ... }: 
-let
-  username = "will";
-in
 {
   # You can import other home-manager modules here
   imports = [
@@ -44,26 +41,6 @@ in
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  home = {
-    username = username;
-    homeDirectory = (if pkgs.stdenv.isDarwin
-      then
-        "/Users"
-      else
-        "/home"
-    ) + "/${username}";
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "willforman";
-    userEmail = "wf8581@gmail.com";
-
-    extraConfig = {
-      pull.ff = true;
-    };
-  };
-
   home.packages = with pkgs; [
     lazygit
     difftastic
@@ -87,12 +64,5 @@ in
     mouse = true;
     terminal = "screen-256color";
     clock24 = false;
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv = {
-      enable = true;
-    };
   };
 }

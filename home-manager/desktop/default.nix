@@ -3,6 +3,8 @@
   imports = [
     ../lib/graphical_apps.nix
     ../lib/linux/graphical_apps
+    ../lib/non_work.nix
+    ../lib/non_work_graphical.nix
   ];
 
   services = {
