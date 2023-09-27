@@ -31,5 +31,4 @@
     identityPaths = [ "/home/will/.ssh/id_ed25519" ];
   };
 
-  services.tailscale.enable = true;
 }

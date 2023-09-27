@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ../lib/graphical_apps
+    ../../lib/non_work.nix
   ];
 
   networking.hostName = "desktop-wf";

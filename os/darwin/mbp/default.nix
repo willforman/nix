@@ -3,6 +3,7 @@
 {
   imports = [
     ./network.nix
+    ../../lib/non_work.nix
   ];
 
   environment.systemPackages = with pkgs; [
