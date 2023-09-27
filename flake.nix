@@ -74,6 +74,7 @@
       };
       in {
         mbp = mkHost "mbp";
+        work = mkHost "work";
       };
   };
 }
