@@ -21,6 +21,8 @@
     };
   };
 
+  time.timeZone = "America/Chicago";
+
   environment.systemPackages = with pkgs; [
     vim
     wget
