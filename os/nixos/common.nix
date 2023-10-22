@@ -33,7 +33,7 @@
   };
 
   networking.firewall = {
-    enable = true;
+    enable = false;
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
     allowedTCPPorts = [ ];
@@ -41,10 +41,10 @@
   };
 
   networking = {
-    nameservers = [
-      "100.100.100.100"
-      "1.1.1.1"
-    ];
+    # nameservers = [
+    #   "100.100.100.100"
+    #   "1.1.1.1"
+    # ];
 
     search = [ "tail8135e.ts.net" ];
   };
