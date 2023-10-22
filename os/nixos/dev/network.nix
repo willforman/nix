@@ -61,6 +61,9 @@ in
 
   networking.firewall = {
     trustedInterfaces = [ "wg0" ];
-    allowedUDPPorts = [ wireGuard.port ];
+    allowedUDPPorts = [ 
+      wireGuard.port 
+      53 # DNS resolver port for adguardhome
+    ];
   };
 }
