@@ -35,6 +35,7 @@
     };
   };
 
+  networking.nftables.enable = true;
   networking.firewall = {
     enable = false;
     trustedInterfaces = [ "tailscale0" ];
