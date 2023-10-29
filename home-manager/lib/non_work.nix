@@ -13,6 +13,7 @@
 
     extraConfig = {
       pull.ff = true;
+      init.defaultBranch = "main";
     };
   };
 }
