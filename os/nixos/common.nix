@@ -60,7 +60,7 @@
   # after a few minutes
   systemd.services.resetNetworkInterface = {
     wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    after = [ "network-online.target" ];
     description = "Reset network interface if internet goes down";
     scriptArgs = "eno1";
     script = ''
