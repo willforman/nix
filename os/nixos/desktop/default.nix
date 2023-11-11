@@ -10,4 +10,6 @@
   hardware.enableAllFirmware = true;
 
   networking.wireless.iwd.enable = true;
+
+  hardware.keyboard.zsa.enable = true;
 }
