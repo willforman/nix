@@ -9,8 +9,8 @@ local M = {
     'hrsh7th/cmp-cmdline',
     'saadparwaiz1/cmp_luasnip',
     'folke/neodev.nvim',
-    'zbirenbaum/copilot.lua',
-    'zbirenbaum/copilot-cmp',
+    -- 'zbirenbaum/copilot.lua',
+    -- 'zbirenbaum/copilot-cmp',
   }
 }
 
@@ -62,13 +62,13 @@ function M.config()
   })
 
 
-  local copilot = require('copilot')
-  copilot.setup({
-    suggestion = { enable = true },
-    panel = { enable = false },
-  })
-
-  require("copilot_cmp").setup()
+  -- local copilot = require('copilot')
+  -- copilot.setup({
+  --   suggestion = { enable = true },
+  --   panel = { enable = false },
+  -- })
+  --
+  -- require("copilot_cmp").setup()
 end
 
 return M
