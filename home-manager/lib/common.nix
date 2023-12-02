@@ -7,6 +7,7 @@
 
     ./zsh
     ./nvim
+    ./emacs
   ];
 
   nixpkgs = {
