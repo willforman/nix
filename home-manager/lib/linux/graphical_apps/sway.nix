@@ -10,11 +10,13 @@
       menu = "wofi --show run";
       bars = [];
       output = {
+        "*" = {
+          bg = "~/.config/sway/wallpapers/wallpaper.jpeg fit";
+        };
         DP-2 = {
           scale = "1.15";
           mode = "2560x1440@74.924Hz";
           adaptive_sync = "on";
-          bg = "~/.config/sway/wallpapers/wallpaper.jpeg fit";
         };
       };
       gaps = {
