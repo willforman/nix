@@ -25,6 +25,7 @@
       "anki"
       "numi"
       "firefox"
+      "trezor-suite"
     ];
   };
 }
