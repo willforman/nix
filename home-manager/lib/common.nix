@@ -13,6 +13,7 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
+      outputs.overlays.modifications
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -65,5 +66,14 @@
     mouse = true;
     terminal = "screen-256color";
     clock24 = false;
+  };
+
+  programs.gpg = {
+    enable = true;
+    package = pkgs.gnupg_2_4_0;
+  };
+
+  services.gpg-agent = {
+    enable = true;
   };
 }
