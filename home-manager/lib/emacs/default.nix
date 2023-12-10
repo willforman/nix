@@ -11,12 +11,6 @@ let
       ]))
     ]
   );
-  # my-emacs = pkgs.emacsWithPackagesFromUsePackage {
-  #   package = pkgs.emacs29-pgtk;
-  #   withTreeSitter = true;
-  #   extraEmacsPackages = epkgs: with epkgs; [
-  #   ];
-  # };
   inherit (pkgs) stdenv;
 in
 {

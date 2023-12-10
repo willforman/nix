@@ -72,8 +72,4 @@
     enable = true;
     package = pkgs.gnupg_2_4_0;
   };
-
-  services.gpg-agent = {
-    enable = true;
-  };
 }
