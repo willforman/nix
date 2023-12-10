@@ -10,5 +10,9 @@
         hash = "sha256-HXkVjdAdmSQx3S4/rLif2slxJ/iXhOosthDGAPsMFIM=";
       };
     });
+    # emacs-overlay = import inputs.emacs-overlay;
+    # my-emacs = prev.emacs29-pgtk.overrideAttrs (_: rec {
+    #   withTreeSitter = true;
+    # });
   };
 }

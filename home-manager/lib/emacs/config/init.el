@@ -13,11 +13,13 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-;(require 'package)
+(setq-default indent-tabs-mode t)
+(electric-pair-mode t)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+                         ("elpa" . "https://elpa.gnu.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 ;(package-initialize)
 
 (use-package evil
@@ -235,7 +237,11 @@
   ;; be used globally (M-/).  See also the customization variable
   ;; `global-corfu-modes' to exclude certain modes.
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  ;:config
+  ;; Enable auto completion and configure quitting
+  (setq corfu-auto t
+    corfu-quit-no-match 'separator)) ;; or t)
 
 ;; A few more useful configurations...
 (use-package emacs
@@ -276,6 +282,36 @@
   ;; `completion-at-point' is often bound to M-TAB.
   (setq tab-always-indent 'complete))
 
+(use-package gnu-elpa-keyring-update)
+
+(use-package direnv
+  :config
+  (direnv-mode))
+
+(use-package treesit
+  :config
+  (setq treesit-font-lock-level 4))
+
+(use-package nix-mode)
+(use-package nix-ts-mode)
+
+(use-package rust-mode
+  :mode ("\\.rs\\'" . rust-mode))
+
+(setq major-mode-remap-alist
+ '((elisp-mode . elisp-ts-mode)
+   (nix-mode . nix-ts-mode)
+   (rust-mode . rust-ts-mode)))
+
+(use-package eglot
+  :hook
+ (rust-ts-mode . eglot-ensure))
+
+(use-package vterm
+  :config
+  (setq vterm-timer-delay 0.01))
+
+
 (defvar center-mode-active nil "Tracks whether Center mode is active.")
 (defvar center-mode-previous-margins (make-hash-table) "Stores previous window margins.")
 
@@ -314,7 +350,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(corfu consult marginalia vertico which-key org-roam org-journal magit use-package evil dracula-theme)))
+   '(nix-mode rust-mode direnv gnu-elpa-keyring-update eat corfu consult marginalia vertico which-key org-roam org-journal magit use-package evil dracula-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
