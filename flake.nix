@@ -20,7 +20,6 @@
     home-manager,
     darwin, 
     agenix,
-    emacs-overlay,
     ... 
     }@inputs: 
     let

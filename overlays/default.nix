@@ -1,5 +1,9 @@
 { inputs, ... }:
-
+let
+  addPatches = pkg: patches: pkg.overrideAttrs (oldAttrs: {
+    patches = (oldAttrs.patches or [ ]) ++ patches;
+  });
+in
 {
   modifications = final: prev: {
     gnupg_2_4_0 = prev.gnupg.overrideAttrs (_: rec {
@@ -10,9 +14,12 @@
         hash = "sha256-HXkVjdAdmSQx3S4/rLif2slxJ/iXhOosthDGAPsMFIM=";
       };
     });
-    # emacs-overlay = import inputs.emacs-overlay;
-    # my-emacs = prev.emacs29-pgtk.overrideAttrs (_: rec {
-    #   withTreeSitter = true;
-    # });
+
+    darwin-emacs29 = addPatches prev.emacs29-macport [
+      ./emacs-darwin/fix-window-role.patch
+      ./emacs-darwin/poll.patch
+      ./emacs-darwin/round-undecorated-frame.patch
+      ./emacs-darwin/system-appearance.patch
+    ];
   };
 }
