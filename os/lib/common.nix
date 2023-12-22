@@ -26,11 +26,5 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    tailscale
   ];
-
-  age = {
-    identityPaths = [ "/home/will/.ssh/id_ed25519" ];
-  };
-
 }
