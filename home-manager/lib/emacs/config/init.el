@@ -4,10 +4,9 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (set-fringe-mode 10)
-
 (menu-bar-mode -1)
-
 (setq visible-bell t)
+(setq initial-scratch-message nil)
 
 (set-face-attribute 'default nil :font "JetBrains Mono" :height 120)
 
@@ -21,6 +20,11 @@
                          ("elpa" . "https://elpa.gnu.org/packages/")
 			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 ;(package-initialize)
+
+(make-directory "~/.emacs.d/backups/" t)
+(make-directory "~/.emacs.d/autosave/" t)
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/autosave/" t)))
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups/")))
 
 (use-package evil
   :config
@@ -50,8 +54,14 @@
 
 (use-package org-roam
   :config
-  (setq org-roam-directory (file-truename "~/org/notes"))
+  (setq org-roam-directory (file-truename "~/org/roam/nodes"))
   (org-roam-db-autosync-mode))
+
+(use-package org-download
+  :hook
+  (org-mode . org-download-enable)
+  :config
+  (setq-default org-download-image-dir "~/org/roam/images"))
 
 (use-package which-key
   :config
@@ -241,7 +251,9 @@
   ;:config
   ;; Enable auto completion and configure quitting
   (setq corfu-auto t
-    corfu-quit-no-match 'separator)) ;; or t)
+	corfu-quit-no-match 'separator)
+  :config
+  (setq corfu-auto-prefix 2)) ;; or t)
 
 ;; A few more useful configurations...
 (use-package emacs
@@ -311,6 +323,14 @@
   :config
   (setq vterm-timer-delay 0.01))
 
+(use-package orderless
+  :init
+  ;; Configure a custom style dispatcher (see the Consult wiki)
+  ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
+  ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
 
 (defvar center-mode-active nil "Tracks whether Center mode is active.")
 (defvar center-mode-previous-margins (make-hash-table) "Stores previous window margins.")
@@ -350,7 +370,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(nix-ts-mode nix-mode rust-mode direnv gnu-elpa-keyring-update eat corfu consult marginalia vertico which-key org-roam org-journal magit use-package evil dracula-theme)))
+   '(org-download orderless nix-ts-mode nix-mode rust-mode direnv gnu-elpa-keyring-update eat corfu consult marginalia vertico which-key org-roam org-journal magit use-package evil dracula-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
