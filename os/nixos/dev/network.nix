@@ -59,11 +59,11 @@ in
     };
   };
 
-  networking.firewall = {
-    trustedInterfaces = [ "wg0" ];
-    allowedUDPPorts = [ 
-      wireGuard.port 
-      53 # DNS resolver port for adguardhome
-    ];
-  };
+  # networking.firewall = {
+  #   trustedInterfaces = [ "wg0" ];
+  #   allowedUDPPorts = [ 
+  #     wireGuard.port 
+  #     53 # DNS resolver port for adguardhome
+  #   ];
+  # };
 }

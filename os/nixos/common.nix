@@ -35,14 +35,14 @@
     };
   };
 
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = false;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ ];
-    checkReversePath = "loose";
-  };
+  # networking.nftables.enable = true;
+  # networking.firewall = {
+  #   enable = false;
+  #   trustedInterfaces = [ "tailscale0" ];
+  #   allowedUDPPorts = [ config.services.tailscale.port ];
+  #   allowedTCPPorts = [ ];
+  #   checkReversePath = "loose";
+  # };
 
   networking = {
     # nameservers = [
