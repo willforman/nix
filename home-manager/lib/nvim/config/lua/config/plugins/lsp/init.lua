@@ -25,8 +25,6 @@ function M.config()
     opts = vim.tbl_deep_extend("force", {}, options, opts)
     require('lspconfig')[server].setup(opts)
   end
-
-  require('config.plugins.null-ls').setup(on_attach)
 end
 
 return M
