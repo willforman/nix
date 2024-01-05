@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     tailscale
+    spotify
   ];
 
   services.tailscale.enable = true;

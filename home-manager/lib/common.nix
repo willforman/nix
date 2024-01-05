@@ -54,6 +54,7 @@
     ripgrep
     nnn
     tree
+    fd
   ];
 
   programs.tmux = {
