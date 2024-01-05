@@ -63,10 +63,14 @@ local function get_cargo_project_path_str()
   return nil, nil
 end
 
-local function compile_test(project_path_str)
+local function get_project_name(project_path_str)
+  return project_path_str:match("([^/]+)$")
+end
+
+local function compile_test(project_path_str, project_name)
   vim.fn.system("cd " .. project_path_str)
   local cargo_test_output = vim.fn.system("cargo test --no-run")
-  return string.match(cargo_test_output, "Executable%sunittests%s[%./%w]+%s%(([/%-%w]+)%)")
+  return cargo_test_output:match("Executable%sunittests%s[%./%w]+%s%((target/debug/deps/" .. project_name .. "%-[%w]+)%)")
 end
 
 function M.init()
@@ -89,6 +93,8 @@ end
 
 function M.config()
   local dap = require('dap')
+
+  dap.set_log_level('DEBUG')
 
   dap.adapters = {
     python = {
@@ -119,13 +125,15 @@ function M.config()
         name = 'launch file',
         program = function()
           local project_path_str, _ = get_cargo_project_path_str()
-          return compile_test(project_path_str)
+          local project_name = get_project_name(project_path_str)
+          local test_bin_path = compile_test(project_path_str, project_name)
+          return test_bin_path
         end,
-        -- args = function()
-        --   return {
-        --     get_current_function()
-        --   }
-        -- end
+        args = function()
+          return {
+            get_current_function()
+          }
+        end
         -- initCommands = function()
         --   -- Find out where to look for the pretty printer Python module
         --   local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
