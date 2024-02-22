@@ -5,7 +5,7 @@
     spotify
   ];
 
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   age = {
     identityPaths = [ "/home/will/.ssh/id_ed25519" ];
