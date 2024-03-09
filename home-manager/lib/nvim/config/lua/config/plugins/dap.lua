@@ -6,8 +6,37 @@ local M = {
   }
 }
 
+local string_utils = require('utils.string')
+local table_utils = require('utils.table')
 
-local function get_current_function()
+local Language = {
+  RUST = 'rust',
+  PYTHON = 'python',
+}
+
+_DEBUGGER_ARGS_INITIAL = "DEBUGGER_ARGS_INITIAL_VALUE"
+DebuggerArgs = _DEBUGGER_ARGS_INITIAL
+
+local function get_current_language()
+  local file_path = vim.api.nvim_get_current_buf(0)
+  local file_name = file_path:match('([^/]+)$')
+  local parts = string_utils.split(file_name, '.')
+  if table_utils.length(parts) ~= 2 then
+    print("len want 2 got " .. vim.inspect(parts))
+  end
+
+  local file_ext = parts[2]
+  if file_ext == "py" then
+    return Language.PYTHON
+  elseif file_ext == "rs" then
+    return Language.RUST
+  end
+
+  return ""
+end
+
+
+local function get_node_text(ts_node_type_name)
   local ts = vim.treesitter
   local curr_node = ts.get_node()
   local bufnr = vim.api.nvim_get_current_buf()
@@ -23,7 +52,7 @@ local function get_current_function()
   end
 
   while curr_node do
-    if curr_node:type() == 'function_item' then
+    if curr_node:type() == ts_node_type_name then
       break
     end
     curr_node = curr_node:parent()
@@ -35,35 +64,7 @@ local function get_current_function()
   end
 
   local text = ts.get_node_text(curr_node, bufnr, nil)
-
-  local pattern = "fn%s+([%w_]+)%("
-  local function_name = string.match(text, pattern)
-  return function_name
-end
-
-local function get_cargo_project_path_str()
-  local Path = require('plenary.path')
-  local file_name = vim.api.nvim_buf_get_name(0)
-  local curr_path = Path:new(file_name)
-
-  while curr_path.filename do
-    local cargo_toml_path = curr_path:joinpath('Cargo.toml')
-
-    if cargo_toml_path:exists() then
-      local maybe_workspace_path = curr_path:parent()
-
-      local maybe_workspace_cargo_toml_path = maybe_workspace_path:joinpath('Cargo.toml')
-
-      if maybe_workspace_cargo_toml_path:exists() then
-        return curr_path:absolute(), maybe_workspace_path:absolute()
-      else
-        return curr_path:absolute(), nil
-      end
-    end
-    curr_path = curr_path:parent()
-  end
-
-  return nil, nil
+  return text
 end
 
 local function get_project_name(project_path_str)
@@ -74,6 +75,65 @@ local function compile_test(project_path_str, project_name)
   vim.fn.system("cd " .. project_path_str)
   local cargo_test_output = vim.fn.system("cargo test --no-run")
   return cargo_test_output:match("Executable%sunittests%s[%./%w]+%s%((target/debug/deps/" .. project_name .. "%-[%w]+)%)")
+end
+
+local function is_python_test()
+  local project_utils = require('utils.project')
+  local file_path = vim.api.nvim_buf_name(0)
+  local file_name = file_path:match("([^/]+)$")
+  if not string_utils.starts_with(file_name, 'test_') then
+    return false
+  end
+
+  local tests_path, _ = project_utils.get_project_path('tests')
+  if not tests_path then
+    return false
+  end
+  return true
+end
+
+local function get_python_args()
+  if not is_python_test() then
+    return nil
+  end
+
+  local file_path = vim.api.nvim_buf_get_name(0)
+
+  local function_text = get_node_text("function_definition")
+  local function_name = string.match(function_text, "def%s+([%w_]+)%(")
+
+  local class_text = get_node_text("class_definition")
+  local class_name = string.match(class_text, "class ([%w]+):")
+
+  local test_path = ""
+  if class_name then
+    test_path = file_path .. '::' .. class_name .. '::' .. function_name
+  else
+    test_path = file_path .. '::' .. function_name
+  end
+
+  return { test_path }
+end
+
+local function get_rust_args()
+  local function_text = get_node_text("function_item")
+  local function_name = string.match(function_text, "fn%s+([%w_]+)%(")
+
+  return { function_name }
+end
+
+local function set_current_args()
+  local curr_lang = get_current_language()
+  if curr_lang == Language.PYTHON then
+    DebuggerArgs = get_python_args()
+  elseif curr_lang == Language.RUST then
+    DebuggerArgs = get_rust_args()
+  end
+  return ""
+end
+
+local function print_current_args()
+  print(vim.inspect(DebuggerArgs))
 end
 
 function M.init()
@@ -90,12 +150,15 @@ function M.init()
       t = { dap.step_out, 'Step Out' },
       T = { dap.terminate, 'Terminate' },
       r = { dap.repl.toggle, 'Toggle repl' },
+      s = { set_current_args, 'Set current function to debug' },
+      p = { print_current_args, 'Print current funciton to debug' },
     }
   }, { prefix = '<leader>' })
 end
 
 function M.config()
   local dap = require('dap')
+  local project_utils = require('utils.project')
 
   dap.set_log_level('DEBUG')
 
@@ -118,7 +181,21 @@ function M.config()
         type = 'python',
         request = 'launch',
         name = 'launch file',
-        program = '${file}',
+        pythonPath = project_utils.get_python_path,
+        program = function()
+          if DebuggerArgs ~= _DEBUGGER_ARGS_INITIAL or is_python_test() then
+            return nil
+          else
+            return '${file}'
+          end
+        end,
+        module = function()
+          if DebuggerArgs ~= _DEBUGGER_ARGS_INITIAL then
+            print("Use <leader>dc to initially set args")
+            return nil
+          end
+          return DebuggerArgs
+        end
       },
     },
     rust = {
@@ -127,15 +204,17 @@ function M.config()
         request = 'launch',
         name = 'launch file',
         program = function()
-          local project_path_str, _ = get_cargo_project_path_str()
-          local project_name = get_project_name(project_path_str)
-          local test_bin_path = compile_test(project_path_str, project_name)
+          local project_path_str, _ = project_utils.get_project_path("Cargo.toml")
+          local project_name = get_project_name(project_path_str:absolute())
+          local test_bin_path = compile_test(project_path_str:absolute(), project_name)
           return test_bin_path
         end,
         args = function()
-          return {
-            get_current_function()
-          }
+          if DebuggerArgs ~= _DEBUGGER_ARGS_INITIAL then
+            print("Use <leader>dc to initially set args")
+            return nil
+          end
+          return DebuggerArgs
         end,
         initCommands = function()
           -- Find out where to look for the pretty printer Python module

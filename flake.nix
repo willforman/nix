@@ -81,7 +81,7 @@
           system = "aarch64-darwin";
           hostname = "work";
           username = "wforman";
-          homeDirectory = "/Users/will";
+          homeDirectory = "/Users/wforman";
         };
       };
 

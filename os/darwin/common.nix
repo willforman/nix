@@ -61,6 +61,8 @@
     # swap windows
     alt - i : yabai -m window --swap west
     alt - o : yabai -m window --swap east
+    cmd - return : alacritty msg create-window || alacritty
+    cmd - b: open -a Firefox
     '';
   };
 

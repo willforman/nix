@@ -14,4 +14,8 @@
       "${config.home.homeDirectory}/.nix-profile/bin"
     ];
   };
+
+  programs.zsh.initExtra = ''
+  source ~/code/work_dotfiles/zshrc
+  '';
 }

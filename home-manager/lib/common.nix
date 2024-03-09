@@ -55,6 +55,7 @@
     nnn
     tree
     fd
+    fzf
   ];
 
   programs.tmux = {

@@ -6,7 +6,7 @@
     wrapperFeatures.gtk = true;
     config = {
       modifier = "Mod4";
-      terminal = "foot";
+      terminal = "alacritty";
       menu = "wofi --show run";
       bars = [];
       output = {

@@ -5,7 +5,7 @@ M.servers = {
     settings = {
       Lua = {
         diagnostics = {
-          globals = {'vim'},
+          globals = { 'vim' },
         }
       }
     }
@@ -23,6 +23,13 @@ M.servers = {
   },
   nil_ls = {},
   bashls = {},
+  ruff_lsp = {
+    init_options = {
+      settings = {
+        args = { '--config', 'CONFIG_HERE' },
+      }
+    },
+  },
 }
 
 return M
