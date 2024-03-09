@@ -41,7 +41,7 @@ in
   services.adguardhome = {
     enable = true;
     mutableSettings = false;
-    openFirewall = true;
+    openFirewall = false;
 
     settings = {
       bind_host = "192.168.1.7";
