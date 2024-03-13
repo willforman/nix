@@ -72,6 +72,6 @@
 
   programs.gpg = {
     enable = true;
-    package = pkgs.gnupg_2_4_0;
+    package = pkgs.gnupg_2_4_5;
   };
 }

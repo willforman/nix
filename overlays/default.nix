@@ -6,12 +6,12 @@ let
 in
 {
   modifications = final: prev: {
-    gnupg_2_4_0 = prev.gnupg.overrideAttrs (_: rec {
+    gnupg_2_4_5 = prev.gnupg.overrideAttrs (_: rec {
       pname = "gnupg";
-      version = "2.4.0";
+      version = "2.4.5";
       src = prev.fetchurl {
         url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
-        hash = "sha256-HXkVjdAdmSQx3S4/rLif2slxJ/iXhOosthDGAPsMFIM=";
+        hash = "sha256-9o99ddBssWNcM2002ESvl0NsP2TqFLy3yGl4L5b0Qnc=";
       };
     });
 
