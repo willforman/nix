@@ -1,5 +1,5 @@
 local M = {
-  'mfussenegger/nvim-jdlts',
+  'mfussenegger/nvim-jdtls',
   ft = { 'java' },
 }
 local process_utils = require('utils.process')
