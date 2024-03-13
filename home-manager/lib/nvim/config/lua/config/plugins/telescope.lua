@@ -11,31 +11,34 @@ function M.config()
   telescope.setup({})
 
   telescope.load_extension('file_browser')
-
 end
 
 function M.init()
   vim.keymap.set('n', '<leader><space>', function()
     require('telescope.builtin').find_files()
-  end, { desc = 'Find File'})
+  end, { desc = 'Find File' })
 
   vim.keymap.set('n', '<leader>/', function()
     require('telescope.builtin').live_grep()
-  end, { desc = 'Live Grep'})
+  end, { desc = 'Live Grep' })
 
   vim.keymap.set('n', '<leader>,', function()
     require('telescope.builtin').buffers()
-  end, { desc = 'See Buffers'})
+  end, { desc = 'See Buffers' })
 
   vim.keymap.set('n', '<leader>ht', function()
     require('telescope.builtin').help_tags()
-  end, { desc = 'Help Tags'})
+  end, { desc = 'Help Tags' })
 
   vim.keymap.set('n', '<leader>.', function()
     require('telescope').extensions.file_browser.file_browser({
       path = "%:p:h",
     })
-  end, { desc = 'File Browser'})
+  end, { desc = 'File Browser' })
+
+  vim.keymap.set('n', '<leader>l', function()
+    require('telescope.builtin').lsp_document_symbols()
+  end, { desc = 'Search LSP symbols' })
 end
 
 return M
