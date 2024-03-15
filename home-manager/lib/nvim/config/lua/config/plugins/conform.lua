@@ -14,13 +14,13 @@ function M.config()
       rust = { 'rustfmt' },
     },
     -- Set up format-on-save
-    format_on_save = { timeout_ms = 500, lsp_fallback = true },
+    format_on_save = { timeout_ms = 500, lsp_fallback = false },
   })
 end
 
 function M.init()
-  vim.keymap.set('n', '<leader>f', function ()
-    require('conform').format({ async = true, lsp_fallback = true })
+  vim.keymap.set('n', '<leader>f', function()
+    require('conform').format({ async = true, lsp_fallback = false })
   end, { desc = 'Format' })
 end
 

@@ -93,10 +93,11 @@
             foreground = "#1E1E2E";
             background = "#A6E3A1";
           };
-          footer_bar = {
-            foreground = "#1E1E2E";
-            background = "#A6ADC8";
-          };
+        };
+
+        footer_bar = {
+          foreground = "#1E1E2E";
+          background = "#A6ADC8";
         };
 
         indexed_colors = [

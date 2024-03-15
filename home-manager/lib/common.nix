@@ -56,6 +56,7 @@
     tree
     fd
     fzf
+    bat
   ];
 
   programs.tmux = {

@@ -1,4 +1,4 @@
-local M = { }
+local M = {}
 
 function M.init(_, bufnr)
   local wk = require('which-key')
@@ -6,8 +6,8 @@ function M.init(_, bufnr)
     buffer = bufnr,
     l = {
       name = 'lsp',
-      d = { vim.lsp.buf.definition, 'Show Definition'},
-      D = { vim.lsp.buf.declaration, 'Show Declaration'},
+      d = { vim.lsp.buf.definition, 'Show Definition' },
+      D = { vim.lsp.buf.declaration, 'Show Declaration' },
       h = { vim.lsp.buf.hover, 'Hover' },
       i = { vim.lsp.buf.implementation, 'Show Implementation' },
       s = { vim.lsp.buf.signature_help, 'Show Signature' },
@@ -17,7 +17,7 @@ function M.init(_, bufnr)
         name = 'workspace',
         a = { vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder' },
         r = { vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder' },
-        l = { print(vim.inspect(vim.lsp.buf.list_workspace_folders)), 'List Workspace Folders' },
+        l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'List Workspace Folders' },
       },
       a = {
         name = 'action',
@@ -29,7 +29,7 @@ function M.init(_, bufnr)
       name = 'diagnostics',
       f = { vim.diagnostic.open_float, 'Open Diagnostic Float' }
     },
-  }, { prefix = '<leader>'})
+  }, { prefix = '<leader>' })
 end
 
 return M

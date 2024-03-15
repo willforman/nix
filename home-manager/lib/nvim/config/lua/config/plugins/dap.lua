@@ -14,12 +14,10 @@ local Language = {
   PYTHON = 'python',
 }
 
-_DEBUGGER_ARGS_INITIAL = "DEBUGGER_ARGS_INITIAL_VALUE"
-DebuggerArgs = _DEBUGGER_ARGS_INITIAL
+DebuggerArgs = nil
 
 local function get_current_language()
-  local file_path = vim.api.nvim_get_current_buf(0)
-  local file_name = file_path:match('([^/]+)$')
+  local file_name = vim.api.nvim_buf_get_name(0)
   local parts = string_utils.split(file_name, '.')
   if table_utils.length(parts) ~= 2 then
     print("len want 2 got " .. vim.inspect(parts))
@@ -79,7 +77,7 @@ end
 
 local function is_python_test()
   local project_utils = require('utils.project')
-  local file_path = vim.api.nvim_buf_name(0)
+  local file_path = vim.api.nvim_buf_get_name(0)
   local file_name = file_path:match("([^/]+)$")
   if not string_utils.starts_with(file_name, 'test_') then
     return false
@@ -183,18 +181,19 @@ function M.config()
         name = 'launch file',
         pythonPath = project_utils.get_python_path,
         program = function()
-          if DebuggerArgs ~= _DEBUGGER_ARGS_INITIAL or is_python_test() then
+          if DebuggerArgs ~= nil then
             return nil
-          else
-            return '${file}'
           end
+          if is_python_test() then
+            print("For debugging tests, use <leader>ds")
+          end
+          return '${file}'
         end,
         module = function()
-          if DebuggerArgs ~= _DEBUGGER_ARGS_INITIAL then
-            print("Use <leader>dc to initially set args")
-            return nil
+          if DebuggerArgs ~= nil then
+            return DebuggerArgs
           end
-          return DebuggerArgs
+          return nil
         end
       },
     },
@@ -210,7 +209,7 @@ function M.config()
           return test_bin_path
         end,
         args = function()
-          if DebuggerArgs ~= _DEBUGGER_ARGS_INITIAL then
+          if DebuggerArgs ~= nil then
             print("Use <leader>dc to initially set args")
             return nil
           end

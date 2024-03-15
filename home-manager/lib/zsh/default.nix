@@ -62,18 +62,18 @@ in {
 
       cds() {
         if [[ -n $1 ]]; then
-          local_dirs = ($(fd --type d --depth 1 ".*$1.*" . 2> /dev/null))
+          local dirs=($(fd --type d --maxdepth 1 ".*$1.*" . 2> /dev/null))
 
-          if [[ ''${#dirs[@]} -eq 1 ]]; then
+          if [[ "''${#dirs[@]}" -eq 1 ]]; then
             cd "''${dirs[1]}"
           else
-            local dir = $(echo $dirs | tr " " "\n" | fzf)
+            local dir=$(echo $dirs | tr " " "\n" | fzf)
             if [[ -n $dir ]]; then
               cd "$dir"
             fi
           fi
         else
-          local dir=$(fd --type d --depth 1 ".*$1.*" . 2> /dev/null | fzf)
+          local dir=$(fd --type d --maxdepth 1 ".*$1.*" . 2> /dev/null | fzf)
           if [[ -n $dir ]]; then
             cd "$dir"
           fi
