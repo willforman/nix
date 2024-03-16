@@ -39,6 +39,7 @@ in
           tsx
           bash
           heex
+          fennel
         ]
       ))
     ];

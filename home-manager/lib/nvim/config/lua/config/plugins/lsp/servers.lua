@@ -30,6 +30,7 @@ M.servers = {
       }
     },
   },
+  fennel_ls = {},
 }
 
 return M

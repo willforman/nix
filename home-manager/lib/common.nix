@@ -67,8 +67,11 @@
     keyMode = "vi";
     aggressiveResize = true;
     mouse = true;
-    terminal = "screen-256color";
     clock24 = false;
+    extraConfig = ''
+      set -g default-terminal "tmux-256color"
+      set -ag terminal-overrides ",xterm-256color:RGB"
+    '';
   };
 
   programs.gpg = {

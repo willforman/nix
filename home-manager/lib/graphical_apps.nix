@@ -6,8 +6,11 @@
     enable = true;
 
     settings = {
+      env = {
+        TERM = "xterm-256color";
+      };
       font = {
-        size = 16.0;
+        size = 15.0;
         normal = {
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
