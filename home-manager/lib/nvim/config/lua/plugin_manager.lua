@@ -1,4 +1,4 @@
-require('lazy').setup('config.plugins', {
+require('lazy').setup('plugins', {
   performance = {
     -- so nvim can use treesitter installed through nix home manager
     reset_packpath = false,
