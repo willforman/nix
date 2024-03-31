@@ -5,6 +5,8 @@
     ../../lib/non_work.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
+
   networking.hostName = "dev-wf";
 
   # Keep laptop running when lid is shut
