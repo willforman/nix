@@ -16,6 +16,7 @@ in
       gcc
       nil
       lua-language-server
+      fennel-ls
       nodePackages.bash-language-server
     ];
 
@@ -46,4 +47,5 @@ in
   };
 
   home.file."./.config/nvim".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/config";
+  home.file."./.config/fennel/fennelrc".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/fennelrc.fnl";
 }
