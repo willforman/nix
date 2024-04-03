@@ -2,7 +2,7 @@ local M = {
   'mfussenegger/nvim-dap',
   event = 'VeryLazy',
   dependencies = {
-    "rcarriga/nvim-dap-ui"
+    "rcarriga/nvim-dap-ui",
   }
 }
 
