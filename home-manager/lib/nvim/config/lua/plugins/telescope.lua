@@ -36,7 +36,7 @@ function M.init()
     })
   end, { desc = 'File Browser' })
 
-  vim.keymap.set('n', '<leader>l', function()
+  vim.keymap.set('n', '<leader>s', function()
     require('telescope.builtin').lsp_document_symbols()
   end, { desc = 'Search LSP symbols' })
 end
