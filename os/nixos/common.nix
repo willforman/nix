@@ -35,51 +35,8 @@
     };
   };
 
-  # networking.nftables.enable = true;
-  # networking.firewall = {
-  #   enable = false;
-  #   trustedInterfaces = [ "tailscale0" ];
-  #   allowedUDPPorts = [ config.services.tailscale.port ];
-  #   allowedTCPPorts = [ ];
-  #   checkReversePath = "loose";
-  # };
-
-  networking = {
-    # nameservers = [
-    #   "100.100.100.100"
-    #   "1.1.1.1"
-    # ];
-
-    search = [ "tail8135e.ts.net" ];
-  };
-
   services.resolved.enable = true;
   services.udisks2.enable = true;
-
-  # Temporary service to fix ethernet going down
-  # after a few minutes
-  # systemd.services.resetNetworkInterface = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   after = [ "network-online.target" ];
-  #   description = "Reset network interface if internet goes down";
-  #   scriptArgs = "eno1";
-  #   script = ''
-  #     sleep 30 # Don't need to start checking right away
-  #     net_int=$1
-  #
-  #     while true; do
-  #       if ${pkgs.wget}/bin/wget -q --spider www.google.com; then
-  #         sleep 2
-  #       else
-  #         echo "Restarting $net_int"
-  #         ${pkgs.iproute2}/bin/ip link set $net_int down
-  #         sleep 3
-  #         ${pkgs.iproute2}/bin/ip link set $net_int up
-  #         sleep 30
-  #       fi
-  #     done
-  #   '';
-  # };
 
   system.stateVersion = "22.11";
 }
