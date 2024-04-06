@@ -41,7 +41,7 @@ in
   services.adguardhome = {
     enable = true;
     mutableSettings = false;
-    openFirewall = false;
+    openFirewall = true;
 
     settings = {
       bind_host = "192.168.1.7";
@@ -59,11 +59,9 @@ in
     };
   };
 
-  # networking.firewall = {
-  #   trustedInterfaces = [ "wg0" ];
-  #   allowedUDPPorts = [ 
-  #     wireGuard.port 
-  #     53 # DNS resolver port for adguardhome
-  #   ];
-  # };
+  networking.firewall = {
+    allowedUDPPorts = [ 
+      53 # DNS resolver port for adguardhome
+    ];
+  };
 }
