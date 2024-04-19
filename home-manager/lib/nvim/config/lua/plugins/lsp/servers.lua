@@ -14,7 +14,21 @@ M.servers = {
   eslint = {},
   pyright = {},
   gopls = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          allFeatures = true,
+          loadOutDirsFromCheck = true,
+          runBuildScripts = true,
+        },
+        checkOnSave = {
+          allFeatures = true,
+          command = "clippy",
+        }
+      }
+    }
+  },
   svelte = {},
   html = {},
   cssls = {},
