@@ -40,7 +40,6 @@
   :config
   (require 'org-crypt)
   (setq org-tags-exclude-from-inheritance '("crypt")
-	org-crypt-key nil
 	auto-save-default nil
 	org-crypt-key "B52AFDB6E73B7114")
   (org-crypt-use-before-save-magic))
