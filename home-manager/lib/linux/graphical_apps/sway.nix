@@ -4,6 +4,7 @@
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    checkConfig = false;
     config = {
       modifier = "Mod4";
       terminal = "alacritty";
@@ -11,7 +12,7 @@
       bars = [];
       output = {
         "*" = {
-          bg = "~/.config/sway/wallpapers/wallpaper.jpeg fit";
+          bg = "${config.home.homeDirectory}/.config/sway/wallpapers/wallpaper.jpeg fit";
         };
         DP-2 = {
           scale = "1.15";
