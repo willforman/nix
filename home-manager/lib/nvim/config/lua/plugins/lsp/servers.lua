@@ -19,6 +19,7 @@ M.servers = {
       ['rust-analyzer'] = {
         cargo = {
           allFeatures = true,
+          allTargets = true,
           loadOutDirsFromCheck = true,
           runBuildScripts = true,
         },
