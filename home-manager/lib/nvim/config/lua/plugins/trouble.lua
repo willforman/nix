@@ -1,13 +1,11 @@
 local M = {
   'folke/trouble.nvim',
-  cmd = { 'TroubleToggle', 'Trouble' }
+  cmd = { 'Trouble' }
 }
 
 function M.config()
   local trouble = require('trouble')
-  trouble.setup({
-
-  })
+  trouble.setup({})
 end
 
 function M.init()
