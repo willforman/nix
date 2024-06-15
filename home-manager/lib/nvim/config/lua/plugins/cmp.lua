@@ -33,6 +33,7 @@ function M.config()
     }),
     mapping = cmp.mapping.preset.insert({
       ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-space>"] = cmp.mapping.complete(),
       ['<C-k>'] = cmp.mapping.scroll_docs(-4),
       ['<C-j>'] = cmp.mapping.scroll_docs(4),
       ['<C-e>'] = cmp.mapping.abort()
