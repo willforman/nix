@@ -11,7 +11,8 @@ function M.config()
 end
 
 function M.init()
-  vim.keymap.set('n', '<leader>oe', '<cmd>TroubleToggle<cr>', { desc = 'Open Trouble' })
+  vim.keymap.set('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Open Trouble - all buffers' })
+  vim.keymap.set('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Open Trouble - this buffer' })
 end
 
 return M
