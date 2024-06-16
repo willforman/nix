@@ -65,6 +65,4 @@
     cmd - b: open -a Firefox
     '';
   };
-
-  fonts.fontDir.enable = true;
 }

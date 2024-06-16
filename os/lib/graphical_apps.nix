@@ -1,8 +1,7 @@
 { pkgs, lib, ... }:
 
-let
-  inherit (pkgs) stdenv;
-  fonts = with pkgs; [
+{
+  fonts.packages = with pkgs; [
     jetbrains-mono
     gyre-fonts
     libertinus
@@ -13,10 +12,4 @@ let
 
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-in {
-  fonts = if stdenv.isDarwin then {
-    fonts = fonts;
-  } else {
-    packages = fonts;
-  };
 }
