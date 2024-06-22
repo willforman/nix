@@ -32,7 +32,7 @@ function M.config()
       -- { name = 'copilot' },
     }),
     mapping = cmp.mapping.preset.insert({
-      ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+      ["<Enter>"] = cmp.mapping.confirm({ select = true }),
       ["<C-space>"] = cmp.mapping.complete(),
       ['<C-k>'] = cmp.mapping.scroll_docs(-4),
       ['<C-j>'] = cmp.mapping.scroll_docs(4),
