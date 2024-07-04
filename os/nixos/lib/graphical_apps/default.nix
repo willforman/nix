@@ -6,9 +6,8 @@
     ../../../lib/graphical_apps.nix
   ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
   };
 
   security.pam.services.swaylock = {
