@@ -44,7 +44,12 @@
 
   home.packages = with pkgs; [
     wofi
-    mako
     wl-clipboard
   ];
+
+  services.mako = {
+    enable = true;
+
+    defaultTimeout = 8000;
+  };
 }
