@@ -32,6 +32,12 @@
           xkb_variant = "colemak";
         };
       };
+      keybindings = let
+        modifier = config.wayland.windowManager.sway.config.modifier;
+      in lib.mkOptionDefault {
+        "${modifier}+q" = "kill";
+        "${modifier}+Shift+q" = "exec systemctl suspend";
+      };
     };
     extraSessionCommands = ''
       export WLR_NO_HARDWARE_CURSORS=1
