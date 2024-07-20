@@ -46,6 +46,7 @@ M.servers = {
     },
   },
   fennel_ls = {},
+  roc_ls = {},
 }
 
 return M
