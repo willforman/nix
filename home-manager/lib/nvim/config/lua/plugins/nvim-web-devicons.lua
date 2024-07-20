@@ -5,6 +5,7 @@ local M = {
     'goolord/alpha-nvim',
     'nvim-lualine/lualine.nvim',
     'folke/trouble.nvim',
+    'folke/which-key.nvim',
   },
 }
 

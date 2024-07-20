@@ -21,9 +21,5 @@ in
       ./emacs-darwin/round-undecorated-frame.patch
       ./emacs-darwin/system-appearance.patch
     ];
-
-    nodePackages = prev.nodePackages // {
-      inherit (inputs.nixpkgs-bash-ls-fixes.legacyPackages.${prev.system}.nodePackages) bash-language-server;
-    };
   };
 }

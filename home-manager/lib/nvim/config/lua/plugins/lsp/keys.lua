@@ -2,34 +2,30 @@ local M = {}
 
 function M.init(_, bufnr)
   local wk = require('which-key')
-  wk.register({
+
+  wk.add({
     buffer = bufnr,
-    l = {
-      name = 'lsp',
-      d = { vim.lsp.buf.definition, 'Show Definition' },
-      D = { vim.lsp.buf.declaration, 'Show Declaration' },
-      h = { vim.lsp.buf.hover, 'Hover' },
-      i = { vim.lsp.buf.implementation, 'Show Implementation' },
-      s = { vim.lsp.buf.signature_help, 'Show Signature' },
-      t = { vim.lsp.buf.type_definition, 'Show Type Definition' },
-      r = { vim.lsp.buf.references, 'Show References' },
-      w = {
-        name = 'workspace',
-        a = { vim.lsp.buf.add_workspace_folder, 'Add Workspace Folder' },
-        r = { vim.lsp.buf.remove_workspace_folder, 'Remove Workspace Folder' },
-        l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'List Workspace Folders' },
-      },
-      a = {
-        name = 'action',
-        c = { vim.lsp.buf.code_action, 'Code Action' },
-        r = { vim.lsp.buf.rename, 'Rename' },
-      },
-    },
-    g = {
-      name = 'diagnostics',
-      f = { vim.diagnostic.open_float, 'Open Diagnostic Float' }
-    },
-  }, { prefix = '<leader>' })
+    { "<leader>g", group = "diagnostics" },
+    { "<leader>gf", vim.diagnostic.open_float, desc = "Open Diagnostic Float" },
+
+    { "<leader>l", group = "lsp" },
+    { "<leader>lD", vim.lsp.buf.declaration, desc = "Show Declaration" },
+
+    { "<leader>la", group = "action" },
+    { "<leader>lac", vim.lsp.buf.code_action, desc = "Code Action" },
+    { "<leader>lar", vim.lsp.buf.rename, desc = "Rename" },
+    { "<leader>ld", vim.lsp.buf.definition, desc = "Show Definition" },
+    { "<leader>lh", vim.lsp.buf.hover, desc = "Hover" },
+    { "<leader>li", vim.lsp.buf.implementation, desc = "Show Implementation" },
+    { "<leader>lr", vim.lsp.buf.references, desc = "Show References" },
+    { "<leader>ls", vim.lsp.buf.signature_help, desc = "Show Signature" },
+    { "<leader>lt", vim.lsp.buf.type_definition, desc = "Show Type Definition" },
+
+    { "<leader>lw", group = "workspace" },
+    { "<leader>lwa", vim.lsp.buf.add_workspace_folder, desc = "Add Workspace Folder" },
+    { "<leader>lwl", vim.lsp.buf.remove_workspace_folder, desc = "List Workspace Folders" },
+    { "<leader>lwr", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, desc = "Remove Workspace Folder" },
+  })
 end
 
 return M

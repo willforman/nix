@@ -138,20 +138,18 @@ function M.init()
   local dap = require('dap')
   local wk = require('which-key')
 
-  wk.register({
-    d = {
-      name = 'debug',
-      b = { dap.toggle_breakpoint, 'Toggle Breakpoint' },
-      c = { dap.continue, 'Continue' },
-      o = { dap.step_over, 'Step Over' },
-      i = { dap.step_into, 'Step Into' },
-      t = { dap.step_out, 'Step Out' },
-      T = { dap.terminate, 'Terminate' },
-      r = { dap.repl.toggle, 'Toggle repl' },
-      s = { set_current_args, 'Set current function to debug' },
-      p = { print_current_args, 'Print current funciton to debug' },
-    }
-  }, { prefix = '<leader>' })
+  wk.add(
+  {
+    { "<leader>d", group = "debug" },
+    { "<leader>dT", dap.terminate, desc = "Terminate" },
+    { "<leader>db", dap.toggle_breakpoint, desc = "Toggle Breakpoint" },
+    { "<leader>dc", dap.continue, desc = "Continue" },
+    { "<leader>di", dap.step_into, desc = "Step Into" },
+    { "<leader>do", dap.step_over, desc = "Step Over" },
+    { "<leader>dt", dap.step_out, desc = "Step Out" },
+    { "<leader>dp", print_current_args, desc = "Print current funciton to debug" },
+    { "<leader>ds", set_current_args, desc = "Set current function to debug" }
+  })
 end
 
 function M.config()
