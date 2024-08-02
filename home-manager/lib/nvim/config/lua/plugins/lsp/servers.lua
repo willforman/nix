@@ -36,7 +36,7 @@ M.servers = {
   elixirls = {
     cmd = { 'elixir-ls' },
   },
-  nil_ls = {},
+  nixd = {},
   bashls = {},
   ruff_lsp = {
     init_options = {

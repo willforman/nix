@@ -14,7 +14,7 @@ in
       ripgrep
       fd
       gcc
-      nil
+      nixd
       lua-language-server
       fennel-ls
       nodePackages.bash-language-server
