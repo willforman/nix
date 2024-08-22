@@ -42,6 +42,7 @@
       };
       in {
         dev = mkHost "dev";
+        remote-dev = mkHost "remote-dev";
         desktop = mkHost "desktop";
       };
 
@@ -62,6 +63,12 @@
         dev = mkHost { 
           system = "x86_64-linux";
           hostname = "dev";
+          username = "will";
+          homeDirectory = "/home/will";
+        };
+        remote-dev = mkHost { 
+          system = "aarch64-linux";
+          hostname = "remote-dev";
           username = "will";
           homeDirectory = "/home/will";
         };
