@@ -4,7 +4,7 @@
     spotify
   ];
 
-  age = {
-    identityPaths = [ "/home/will/.ssh/id_ed25519" ];
-  };
+  # age = {
+  #   identityPaths = [ "/home/will/.ssh/id_ed25519" ];
+  # };
 }
