@@ -15,11 +15,11 @@ in
       };
     });
 
-    darwin-emacs29 = addPatches prev.emacs29-macport [
-      ./emacs-darwin/fix-window-role.patch
-      ./emacs-darwin/poll.patch
-      ./emacs-darwin/round-undecorated-frame.patch
-      ./emacs-darwin/system-appearance.patch
-    ];
+    # darwin-emacs29 = addPatches prev.emacs29-macport [
+    #   ./emacs-darwin/fix-window-role.patch
+    #   ./emacs-darwin/poll.patch
+    #   ./emacs-darwin/round-undecorated-frame.patch
+    #   ./emacs-darwin/system-appearance.patch
+    # ];
   };
 }
