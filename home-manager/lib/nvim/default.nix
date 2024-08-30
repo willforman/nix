@@ -17,6 +17,7 @@ in
       nixd
       lua-language-server
       fennel-ls
+      sqlite
       nodePackages.bash-language-server
     ];
 
@@ -48,4 +49,12 @@ in
 
   home.file."./.config/nvim".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/config";
   home.file."./.config/fennel/fennelrc".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/fennelrc.fnl";
+
+  home.sessionVariables = {
+    MANPAGER = "nvim -c 'Man!' -o -";
+    LIBSQLITE = if pkgs.stdenv.isLinux then
+      "${pkgs.sqlite.out}/lib/libsqlite3.so"
+    else
+      "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
+  };
 }

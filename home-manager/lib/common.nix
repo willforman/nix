@@ -57,6 +57,7 @@
     fd
     fzf
     bat
+    sqlite
   ];
 
   programs.tmux = {
