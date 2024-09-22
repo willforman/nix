@@ -10,8 +10,8 @@
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # agenix.url = "github:ryantm/agenix";
-    # agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { 
@@ -19,7 +19,7 @@
     nixpkgs, 
     home-manager,
     darwin, 
-    # agenix,
+    agenix,
     ... 
     }@inputs: 
     let
@@ -37,7 +37,7 @@
           ./os/nixos/common.nix
           ./os/nixos/${hostname}
 
-          # agenix.nixosModules.default
+          agenix.nixosModules.default
         ];
       };
       in {
@@ -101,7 +101,7 @@
           ./os/darwin/common.nix
           ./os/darwin/${hostname}
 
-          # agenix.nixosModules.default
+          agenix.darwinModules.default
         ];
       };
       in {

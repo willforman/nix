@@ -27,4 +27,10 @@
     vim
     wget
   ];
+
+  age.secrets = {
+    "anthropic-api-key" = {
+      file = ../../secrets/anthropic-api-key.age;
+    };
+  };
 }
