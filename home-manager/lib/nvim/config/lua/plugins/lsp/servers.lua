@@ -10,7 +10,7 @@ M.servers = {
       }
     }
   },
-  tsserver = {},
+  ts_ls = {},
   eslint = {},
   pyright = {},
   gopls = {},
