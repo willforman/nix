@@ -43,9 +43,10 @@ in
     mutableSettings = false;
     openFirewall = true;
 
+    host = "192.168.1.7";
+    port = 3000;
+
     settings = {
-      bind_host = "192.168.1.7";
-      bind_port = 3000;
       users = [{ 
         name = "admin";
         password = "$2y$05$M4mvpCUW.42d6F4IBgdsM.BsdxiP4WmkbDq4hGayQW09dc40HOunO";
