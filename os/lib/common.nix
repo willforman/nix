@@ -27,13 +27,4 @@
     vim
     wget
   ];
-
-  age = {
-    identityPaths = [ "${config.users.users.will.home}/.ssh/id_ed25519" ];
-    secrets = {
-      "anthropic-api-key" = {
-        file = ../../secrets/anthropic-api-key.age;
-      };
-    };
-  };
 }

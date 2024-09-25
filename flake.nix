@@ -36,8 +36,6 @@
           ./os/lib/common.nix
           ./os/nixos/common.nix
           ./os/nixos/${hostname}
-
-          agenix.nixosModules.default
         ];
       };
       in {
@@ -57,6 +55,7 @@
             {
               home = { inherit username homeDirectory; };
             }
+            agenix.homeManagerModules.default
           ];
         };
       in {
@@ -100,8 +99,6 @@
           ./os/lib/common.nix
           ./os/darwin/common.nix
           ./os/darwin/${hostname}
-
-          agenix.darwinModules.default
         ];
       };
       in {
