@@ -65,4 +65,23 @@
     cmd - b: open -a Firefox
     '';
   };
+
+  launchd.user.agents.UserKeyMapping.serviceConfig = {
+    ProgramArguments = [
+      "/usr/bin/hidutil"
+      "property"
+      # "--match"
+      # "{&quot;ProductID&quot;:0x0,&quot;VendorID&quot;:0x0,&quot;Product&quot;:&quot;Apple Internal Keyboard / Trackpad&quot;}"
+      "--set"
+      (
+        let
+          # https://developer.apple.com/library/archive/technotes/tn2450/_index.html
+          capsLock = "0x700000039";
+          deleteOrBackspace = "0x70000002A";
+        in
+        "{&quot;UserKeyMapping&quot;:[{&quot;HIDKeyboardModifierMappingSrc&quot;:${capsLock},&quot;HIDKeyboardModifierMappingDst&quot;:${deleteOrBackspace}}]}"
+      )
+    ];
+    RunAtLoad = true;
+  };
 }
