@@ -79,7 +79,7 @@
           capsLock = "0x700000039";
           deleteOrBackspace = "0x70000002A";
         in
-        "{&quot;UserKeyMapping&quot;:[{&quot;HIDKeyboardModifierMappingSrc&quot;:${capsLock},&quot;HIDKeyboardModifierMappingDst&quot;:${deleteOrBackspace}}]}"
+        "{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":${capsLock},\"HIDKeyboardModifierMappingDst\":${deleteOrBackspace}}]}"
       )
     ];
     RunAtLoad = true;
