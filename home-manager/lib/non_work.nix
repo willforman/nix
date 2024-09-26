@@ -28,8 +28,6 @@
   };
 
   home.sessionVariables = {
-    ANTHROPIC_API_KEY = ''
-      $(${pkgs.coreutils}/bin/cat ${config.age.secrets.anthropic-api-key.path})
-    '';
+    ANTHROPIC_API_KEY = "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.anthropic-api-key.path})";
   };
 }
