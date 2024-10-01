@@ -7,4 +7,5 @@ let
   allUsers = builtins.attrValues users;
 in {
   "anthropic-api-key.age".publicKeys = allUsers;
+  "remote-dev-ip.age".publicKeys = allUsers;
 }
