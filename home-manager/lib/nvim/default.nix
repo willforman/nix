@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
+  inherit (config.lib.file) mkOutOfStoreSymlink;
 in
 {
   programs.neovim = {
@@ -47,8 +47,8 @@ in
     ];
   };
 
-  home.file."./.config/nvim".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/config";
-  home.file."./.config/fennel/fennelrc".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/fennelrc.fnl";
+  xdg.configFile."nvim".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/config";
+  xdg.configFile."fennel/fennelrc".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/fennelrc.fnl";
 
   home.sessionVariables = {
     MANPAGER = "nvim -c 'Man!' -o -";

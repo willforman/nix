@@ -16,7 +16,7 @@ let
       ]))
     ]
   );
-  mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
+  inherit (config.lib.file) mkOutOfStoreSymlink;
 in
 {
   programs.emacs = {
