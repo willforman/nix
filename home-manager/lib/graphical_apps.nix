@@ -1,6 +1,15 @@
 { config, pkgs, lib, ... }:
 
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+in
 {
+  programs.wezterm = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  xdg.configFile."wezterm/wezterm.lua".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/wezterm.lua";
   
   programs.alacritty = {
     enable = true;
