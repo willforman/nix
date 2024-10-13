@@ -69,7 +69,11 @@
     aggressiveResize = true;
     mouse = true;
     clock24 = false;
+    shell = "\${SHELL}";
+
+      # set -g default-shell ${pkgs.zsh}/bin/zsh
     extraConfig = ''
+      set -g default-command "''${SHELL}"
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
     '';
