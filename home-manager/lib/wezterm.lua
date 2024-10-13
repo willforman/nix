@@ -1,14 +1,21 @@
--- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
--- This will hold the configuration.
-local config = wezterm.config_builder()
+local config = {}
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
 
--- This is where you actually apply your config choices
-
-config.color_scheme = 'catppucin-mocha'
+config.color_scheme = 'Catppuccin Mocha'
 
 config.font = wezterm.font('JetBrains Mono')
+config.font_size = 14.5
 
--- and finally, return the configuration to wezterm
+config.window_close_confirmation = 'NeverPrompt'
+
+-- Fix text rendering as blocks: https://github.com/wez/wezterm/issues/5990
+config.front_end = "WebGpu"
+
+-- Key bindings
+config.leader = { key = 'e', mods = 'CTRL', timeout_milliseconds = 1000 }
+
 return config

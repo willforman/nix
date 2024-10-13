@@ -7,6 +7,7 @@ in
   programs.wezterm = {
     enable = true;
     enableZshIntegration = true;
+    enableBashIntegration = false;
   };
 
   xdg.configFile."wezterm/wezterm.lua".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/wezterm.lua";
