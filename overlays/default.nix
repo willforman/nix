@@ -22,4 +22,8 @@ in
     #   ./emacs-darwin/system-appearance.patch
     # ];
   };
+
+  additions = final: prev: {
+    aerospace = inputs.nixpkgs-aerospace.legacyPackages.${prev.system}.aerospace;
+  };
 }

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../lib/darwin.nix
     ../lib/graphical_apps.nix
     ../lib/non_work.nix
     ../lib/non_work_graphical.nix
