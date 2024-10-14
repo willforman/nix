@@ -1,6 +1,3 @@
-build-darwin-result
-
 # Ignore everything in emacs/config except for elisp files
 home-manager/lib/emacs/config/**
 !home-manager/lib/emacs/config/**/*.el
-
