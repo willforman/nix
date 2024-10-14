@@ -5,7 +5,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    aerospace
+    my-aerospace
   ];
 
   xdg.configFile."aerospace/aerospace.toml".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/aerospace/aerospace.toml";

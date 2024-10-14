@@ -5,25 +5,18 @@ let
   });
 in
 {
-  modifications = final: prev: {
-    gnupg_2_4_5 = prev.gnupg.overrideAttrs (_: rec {
-      pname = "gnupg";
-      version = "2.4.5";
-      src = prev.fetchurl {
-        url = "mirror://gnupg/gnupg/${pname}-${version}.tar.bz2";
-        hash = "sha256-9o99ddBssWNcM2002ESvl0NsP2TqFLy3yGl4L5b0Qnc=";
-      };
-    });
-
-    # darwin-emacs29 = addPatches prev.emacs29-macport [
-    #   ./emacs-darwin/fix-window-role.patch
-    #   ./emacs-darwin/poll.patch
-    #   ./emacs-darwin/round-undecorated-frame.patch
-    #   ./emacs-darwin/system-appearance.patch
-    # ];
+  additions = _final: prev: {
+    my-aerospace = inputs.nixpkgs-aerospace.legacyPackages.${prev.system}.aerospace;
   };
 
-  additions = final: prev: {
-    aerospace = inputs.nixpkgs-aerospace.legacyPackages.${prev.system}.aerospace;
+  modifications = final: prev: {
+    my-aerospace = prev.my-aerospace.overrideAttrs (_: rec {
+      pname = "aerospace";
+      version = "0.15.2-Beta";
+      src = prev.fetchzip {
+        url = "https://github.com/nikitabobko/AeroSpace/releases/download/v${version}/AeroSpace-v${version}.zip";
+        hash = "sha256-jOSUtVSiy/S4nsgvfZZqZjxsppqNi90edn8rcTa+pFQ=";
+      };
+    });
   };
 }
