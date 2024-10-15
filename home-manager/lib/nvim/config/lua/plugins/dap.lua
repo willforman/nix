@@ -143,6 +143,7 @@ function M.init()
     { "<leader>d", group = "debug" },
     { "<leader>dT", dap.terminate, desc = "Terminate" },
     { "<leader>db", dap.toggle_breakpoint, desc = "Toggle Breakpoint" },
+    { "<leader>dr", dap.restart, desc = "Restart" },
     { "<leader>dc", dap.continue, desc = "Continue" },
     { "<leader>di", dap.step_into, desc = "Step Into" },
     { "<leader>do", dap.step_over, desc = "Step Over" },
