@@ -56,6 +56,7 @@
     nnn
     tree
     fd
+    sd
     fzf
     bat
     sqlite
