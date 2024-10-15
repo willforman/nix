@@ -15,7 +15,9 @@ end
 
 function M.init()
   vim.keymap.set('n', '<leader><space>', function()
-    require('telescope.builtin').find_files()
+    require('telescope').extensions.smart_open.smart_open({
+      cwd = true
+    })
   end, { desc = 'Find File' })
 
   vim.keymap.set('n', '<leader>/', function()
