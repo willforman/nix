@@ -21,6 +21,7 @@ in {
       save = 1000000;
       size = 1000000;
       share = true;
+      extended = true;
     };
 
     plugins = [
