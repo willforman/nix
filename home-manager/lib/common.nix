@@ -60,6 +60,7 @@
     fzf
     bat
     sqlite
+    jujutsu
   ];
 
   programs.tmux = {
