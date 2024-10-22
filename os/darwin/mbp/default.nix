@@ -26,6 +26,7 @@
       "anki"
       "numi"
       "firefox"
+      "keymapp"
     ];
   };
 }
