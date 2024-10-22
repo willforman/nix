@@ -30,4 +30,14 @@
   home.sessionVariables = {
     ANTHROPIC_API_KEY = "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.anthropic-api-key.path})";
   };
+
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "willforman";
+        email = "wf@willforman.com";
+      };
+    };
+  };
 }
