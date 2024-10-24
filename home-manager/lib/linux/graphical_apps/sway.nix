@@ -37,6 +37,11 @@
       in lib.mkOptionDefault {
         "${modifier}+q" = "kill";
         "${modifier}+Shift+q" = "exec systemctl suspend";
+        "${modifier}+b" = "exec firefox";
+        "${modifier}+n" = "focus left";
+        "${modifier}+e" = "focus down";
+        "${modifier}+i" = "focus up";
+        "${modifier}+o" = "focus right";
       };
     };
     extraSessionCommands = ''
