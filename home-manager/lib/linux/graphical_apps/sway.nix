@@ -42,6 +42,9 @@
         "${modifier}+e" = "focus down";
         "${modifier}+i" = "focus up";
         "${modifier}+o" = "focus right";
+        "${modifier}+slash" = "layout toggle split";
+        "${modifier}+comma" = "layout stacking";
+        "${modifier}+period" = "layout tabbed";
       };
     };
     extraSessionCommands = ''
