@@ -1,5 +1,4 @@
-local M = {
+return {
   'stevearc/dressing.nvim',
+  event = 'UIEnter',
 }
-
-return M

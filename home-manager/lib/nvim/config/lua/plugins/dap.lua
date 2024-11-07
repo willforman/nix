@@ -3,6 +3,7 @@ local M = {
   event = 'VeryLazy',
   dependencies = {
     "rcarriga/nvim-dap-ui",
+    'folke/which-key.nvim',
   }
 }
 
@@ -120,23 +121,24 @@ local function get_rust_args()
   return { function_name }
 end
 
-local function set_current_args()
-  local curr_lang = get_current_language()
-  if curr_lang == Language.PYTHON then
-    DebuggerArgs = get_python_args()
-  elseif curr_lang == Language.RUST then
-    DebuggerArgs = get_rust_args()
-  end
-  return ""
-end
-
-local function print_current_args()
-  print(vim.inspect(DebuggerArgs))
-end
 
 function M.init()
   local dap = require('dap')
   local wk = require('which-key')
+
+  local function set_current_args()
+    local curr_lang = get_current_language()
+    if curr_lang == Language.PYTHON then
+      DebuggerArgs = get_python_args()
+    elseif curr_lang == Language.RUST then
+      DebuggerArgs = get_rust_args()
+    end
+    return ""
+  end
+
+  local function print_current_args()
+    print(vim.inspect(DebuggerArgs))
+  end
 
   wk.add(
   {
@@ -156,8 +158,6 @@ end
 function M.config()
   local dap = require('dap')
   local project_utils = require('utils.project')
-
-  dap.set_log_level('DEBUG')
 
   dap.adapters = {
     python = {

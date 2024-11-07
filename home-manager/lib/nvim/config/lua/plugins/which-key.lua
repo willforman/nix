@@ -1,14 +1,4 @@
-local M = {
+return {
   'folke/which-key.nvim',
-  event = "VeryLazy",
-  dependencies = {
-    'neovim/nvim-lspconfig',
-  },
+  event = "UIEnter",
 }
-
-function M.config()
-  local wk = require('which-key')
-  wk.setup({})
-end
-
-return M

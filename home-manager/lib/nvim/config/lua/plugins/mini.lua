@@ -1,10 +1,8 @@
-local M = { 
+return {
   'echasnovski/mini.nvim',
-  version = false 
+  event = "VeryLazy",
+  version = false,
+  config = function ()
+    require('mini.surround').setup()
+  end
 }
-
-function M.config()
-  require('mini.surround').setup()
-end
-
-return M

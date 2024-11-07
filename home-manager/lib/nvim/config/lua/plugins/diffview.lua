@@ -1,5 +1,4 @@
-local M = { 
+return { 
   'sindrets/diffview.nvim',
+  event = 'UIEnter',
 }
-
-return M

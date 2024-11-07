@@ -1,5 +1,6 @@
 local M = {
   'windwp/nvim-autopairs',
+  event = 'InsertEnter',
   dependencies = {
     'windwp/nvim-ts-autotag'
   }
