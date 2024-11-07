@@ -39,6 +39,13 @@ function M.config()
       telescope = { enabled = true },
       which_key = true,
     },
+    highlight_overrides = {
+      mocha = function(mocha)
+        return {
+          LineNr = { fg = mocha.overlay1 },
+        }
+      end
+    },
   })
   vim.cmd.colorscheme "catppuccin"
 end
