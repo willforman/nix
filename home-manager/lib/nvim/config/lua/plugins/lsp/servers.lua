@@ -38,7 +38,7 @@ M.servers = {
   },
   nixd = {},
   bashls = {},
-  ruff_lsp = {
+  ruff = {
     init_options = {
       settings = {
         args = { '--config', 'CONFIG_HERE' },
