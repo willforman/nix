@@ -42,6 +42,11 @@
         "${modifier}+e" = "focus down";
         "${modifier}+i" = "focus up";
         "${modifier}+o" = "focus right";
+        "${modifier}+shift+n" = "move left";
+        "${modifier}+shift+e" = "move down";
+        "${modifier}+shift+i" = "move up";
+        "${modifier}+shift+o" = "move right";
+        "${modifier}+shift+k" = "exit";
         "${modifier}+slash" = "layout toggle split";
         "${modifier}+comma" = "layout stacking";
         "${modifier}+period" = "layout tabbed";
