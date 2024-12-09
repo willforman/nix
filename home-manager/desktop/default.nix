@@ -13,4 +13,8 @@
 
     syncthing.enable = true;
   };
+
+  xdg.userDirs = {
+    enable = true;
+  };
 }
