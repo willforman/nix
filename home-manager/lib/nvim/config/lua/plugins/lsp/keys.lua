@@ -15,7 +15,7 @@ function M.init(_, bufnr)
     { "<leader>lac", vim.lsp.buf.code_action, desc = "Code Action" },
     { "<leader>lar", vim.lsp.buf.rename, desc = "Rename" },
     { "<leader>ld", vim.lsp.buf.definition, desc = "Show Definition" },
-    { "<leader>lh", vim.lsp.buf.hover, desc = "Hover" },
+    { "K", function() return vim.lsp.buf.hover() end, desc = "Hover" },
     { "<leader>li", vim.lsp.buf.implementation, desc = "Show Implementation" },
     { "<leader>lr", vim.lsp.buf.references, desc = "Show References" },
     { "<leader>ls", vim.lsp.buf.signature_help, desc = "Show Signature" },
