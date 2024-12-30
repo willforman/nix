@@ -17,3 +17,5 @@
 --   RELOAD(name)
 --   return require(name)
 -- end
+--
+_G.my_utils = require("utils")
