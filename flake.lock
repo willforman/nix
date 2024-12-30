@@ -198,30 +198,13 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-aerospace": {
-      "locked": {
-        "lastModified": 1728729526,
-        "narHash": "sha256-QDMFkBTmgwrVOLMBXERPDKB59D0GH93TdLm+OoKa80s=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "69151ff73d838b6844f085550d3957278cb63446",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "69151ff73d838b6844f085550d3957278cb63446",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "darwin": "darwin_2",
         "home-manager": "home-manager_2",
         "mac-app-util": "mac-app-util",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-aerospace": "nixpkgs-aerospace"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {

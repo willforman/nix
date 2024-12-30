@@ -15,8 +15,6 @@
 
     mac-app-util.url = "github:hraban/mac-app-util";
     mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixpkgs-aerospace.url = "github:NixOS/nixpkgs/69151ff73d838b6844f085550d3957278cb63446";
   };
 
   outputs = { 
