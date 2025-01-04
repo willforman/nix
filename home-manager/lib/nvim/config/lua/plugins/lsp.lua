@@ -75,6 +75,7 @@ local servers = {
   },
   fennel_ls = {},
   roc_ls = {},
+  jdtls = {},
 }
 
 return {
