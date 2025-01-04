@@ -26,7 +26,7 @@ in
 
       (nvim-treesitter.withPlugins (
         plugins: with plugins; [
-          # lua
+          lua
           c
           css
           elixir
