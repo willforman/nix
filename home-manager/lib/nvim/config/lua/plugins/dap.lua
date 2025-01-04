@@ -13,6 +13,7 @@ local table_utils = require('utils.table')
 local Language = {
   RUST = 'rust',
   PYTHON = 'python',
+  C = 'C',
 }
 
 DebuggerArgs = nil
@@ -74,6 +75,12 @@ local function compile_test(project_path_str, project_name)
   vim.fn.system("cd " .. project_path_str)
   local cargo_test_output = vim.fn.system("cargo test --no-run")
   return cargo_test_output:match("Executable%sunittests%s[%./%w]+%s%((target/debug/deps/" .. project_name .. "%-[%w]+)%)")
+end
+
+local function compile_make(project_path_str)
+  vim.fn.system("cd " .. project_path_str)
+  local make_output = vim.fn.system("make clean && make")
+  return make_output:match("-o%s+([%w/]+)%s")
 end
 
 local function is_python_test()
@@ -233,6 +240,23 @@ function M.config()
 
           return commands
         end,
+      },
+    },
+    c = {
+      {
+        name = 'Launch',
+        type = 'lldb',
+        request = 'launch',
+        program = function ()
+          local project_path_str, _ = project_utils.get_project_path("Makefile")
+          print(project_path_str)
+          local bin_path = compile_make(project_path_str:absolute())
+          print(bin_path)
+          return bin_path
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
       }
     }
   }
