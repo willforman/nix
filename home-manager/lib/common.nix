@@ -60,7 +60,6 @@
     fzf
     bat
     sqlite
-    lazyjj
   ];
 
   programs.tmux = {
