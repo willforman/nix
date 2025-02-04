@@ -20,7 +20,7 @@ in
         TERM = "xterm-256color";
       };
       font = {
-        size = 15.0;
+        size = 14.0;
         normal = {
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
