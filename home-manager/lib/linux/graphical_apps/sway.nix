@@ -50,6 +50,9 @@
         "${modifier}+slash" = "layout toggle split";
         "${modifier}+comma" = "layout stacking";
         "${modifier}+period" = "layout tabbed";
+
+        XF86AudioRaiseVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0";
+        XF86AudioLowerVolume = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.0";
       };
     };
     extraSessionCommands = ''
