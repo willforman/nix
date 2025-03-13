@@ -72,9 +72,10 @@ local function get_project_name(project_path_str)
 end
 
 local function compile_test(project_path_str, project_name)
+  local project_root = project_path_str:gsub("/" .. project_name, "")
   vim.fn.system("cd " .. project_path_str)
   local cargo_test_output = vim.fn.system("cargo test --no-run")
-  return cargo_test_output:match("Executable%sunittests%s[%./%w]+%s%((target/debug/deps/" .. project_name .. "%-[%w]+)%)")
+  return cargo_test_output:match("Executable%sunittests%s[%./%w]+%s%((" .. project_root .. "/target/debug/deps/" .. project_name .. "%-[%w]+)%)")
 end
 
 local function compile_make(project_path_str)
@@ -212,6 +213,7 @@ function M.config()
           local project_path_str, _ = project_utils.get_project_path("Cargo.toml")
           local project_name = get_project_name(project_path_str:absolute())
           local test_bin_path = compile_test(project_path_str:absolute(), project_name)
+          print(test_bin_path)
           return test_bin_path
         end,
         args = function()
