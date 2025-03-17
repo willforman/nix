@@ -25,7 +25,10 @@
 
   programs.zsh.enable = true;
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    extraOptions = "--dns 1.1.1.1 --dns 8.8.8.8";
+  };
 
   services.openssh = {
     enable = true;
