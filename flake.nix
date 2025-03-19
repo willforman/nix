@@ -25,11 +25,19 @@
     agenix,
     mac-app-util,
     ... 
-    }@inputs: 
-    let
+    } @ inputs: let
       inherit (self) outputs;
+
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
+
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
     overlays = import ./overlays { inherit inputs; };
    
