@@ -18,7 +18,6 @@
 
     casks = [
       "ticktick"
-      "orion"
       "betterdisplay"
       "spotify"
       "bitwarden"
