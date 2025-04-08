@@ -35,8 +35,10 @@ function M.config()
           background = true,
         }
       },
+      snacks = {
+        enabled = true,
+      },
       treesitter = true,
-      telescope = { enabled = true },
       which_key = true,
     },
     highlight_overrides = {
