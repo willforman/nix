@@ -1,5 +1,9 @@
 { config, pkgs, ...}:
 {
+  home.packages = with pkgs; [
+    ordo
+  ];
+
   programs.direnv = {
     enable = true;
     nix-direnv = {
