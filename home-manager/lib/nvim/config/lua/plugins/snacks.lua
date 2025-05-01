@@ -6,7 +6,7 @@ return {
     explorer = {},
   },
   keys = {
-    { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+    { "<leader><space>", function() Snacks.picker.smart({ filter = {cwd = true}}) end, desc = "Smart Find Files" },
     { "<leader>.", function() Snacks.picker.files({ cwd = "%:p:h" }) end, desc = "Smart Find Files In CWD" },
     -- { "<leader>.", function() Snacks.picker.recent({ filter = { cwd = true }}) end, desc = "Find files in current directory" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
