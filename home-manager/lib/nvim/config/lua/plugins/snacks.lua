@@ -2,8 +2,12 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
-    picker = {},
     explorer = {},
+    picker = {
+      sources = {
+        explorer = {}
+      }
+    },
   },
   keys = {
     { "<leader><space>", function() Snacks.picker.smart({ filter = {cwd = true}}) end, desc = "Smart Find Files" },
@@ -11,6 +15,7 @@ return {
     -- { "<leader>.", function() Snacks.picker.recent({ filter = { cwd = true }}) end, desc = "Find files in current directory" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Search Help Pages" },
+    { "<leader>.", function() Snacks.explorer() end, desc = "Explore files" },
     -- LSP
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
