@@ -122,5 +122,12 @@ in
 
   home.packages = with pkgs; [
     obsidian
+    bitwarden-desktop
+    anki-bin
+    spotify
   ];
+
+  programs.firefox = {
+    enable = true;
+  };
 }

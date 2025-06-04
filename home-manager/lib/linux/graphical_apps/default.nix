@@ -17,7 +17,6 @@
     obsidian
     pcmanfm
     thunderbird
-    anki-bin
     zathura
     feh
     font-manager
