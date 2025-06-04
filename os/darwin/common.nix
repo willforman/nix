@@ -10,6 +10,8 @@
       shell = pkgs.zsh;
     };
   };
+
+  system.primaryUser = "will";
   
   # services.yabai = {
   #   enable = true;
