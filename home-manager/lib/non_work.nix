@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     ordo
+    cutechess
   ];
 
   programs.direnv = {
