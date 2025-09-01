@@ -95,6 +95,7 @@ return {
       servers = servers,
       inlay_hints = {
         enabled = true,
+        exclude = {},
       },
       codelens = {
         enabled = true,
@@ -106,6 +107,7 @@ return {
   --param ops PluginLspOpts
   config = function (_, opts)
     local lspconfig = require("lspconfig")
+    my_utils.lsp.setup()
 
     -- inlay hints
     if opts.inlay_hints.enabled then
