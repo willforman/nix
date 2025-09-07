@@ -22,10 +22,6 @@ local servers = {
           loadOutDirsFromCheck = true,
           runBuildScripts = true,
         },
-        checkOnSave = {
-          allFeatures = true,
-          command = "clippy",
-        },
         diagnostics = false,
       }
     }
