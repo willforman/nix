@@ -6,6 +6,8 @@
     ../../lib/non_work.nix
   ];
 
+  nix.enable = false;
+
   environment.systemPackages = with pkgs; [
     wireguard-tools
   ];
