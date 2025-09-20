@@ -139,7 +139,8 @@ return {
 
     for server, server_opts in pairs(opts.servers) do
       server_opts = vim.tbl_deep_extend("force", {}, options, server_opts)
-      lspconfig[server].setup(server_opts)
+      vim.lsp.config(server, server_opts)
+      vim.lsp.enable(server)
     end
   end
 }
