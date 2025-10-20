@@ -10,6 +10,8 @@
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -24,6 +26,7 @@
     darwin, 
     agenix,
     mac-app-util,
+    determinate,
     ... 
     } @ inputs: let
       inherit (self) outputs;
@@ -48,6 +51,7 @@
           ./os/lib/common.nix
           ./os/nixos/common.nix
           ./os/nixos/${hostname}
+          determinate.nixosModules.default
         ];
       };
       in {
