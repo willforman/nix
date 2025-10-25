@@ -14,10 +14,13 @@
 
   programs.git = {
     enable = true;
-    userName = "willforman";
-    userEmail = "wf8581@gmail.com";
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "willforman";
+        email = "wf8581@gmail.com";
+      };
+
       pull.ff = true;
       init.defaultBranch = "main";
     };
