@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "cutechess";
     repo = "cutechess";
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-vhS3Eenxcq7D8E5WVON5C5hCTytcEVbYUeuCkfB0apA=";
   };
 
@@ -28,7 +28,6 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     qtbase
-    qtsvg
   ];
 
   postInstall = ''
@@ -38,11 +37,11 @@ stdenv.mkDerivation (finalAttrs: {
     install -Dm444 $src/docs/cutechess-engines.json.5 -t $out/share/man/man5/
   '';
 
-  meta = with lib; {
+  meta = {
     description = "GUI, CLI, and library for playing chess";
     homepage = "https://cutechess.com/";
-    license = licenses.gpl3Plus;
-    platforms = with platforms; (linux ++ windows ++ darwin);
+    license = lib.licenses.gpl3Plus;
+    platforms = with lib.platforms; (linux ++ windows ++ darwin);
     mainProgram = "cutechess";
   };
 })
