@@ -18,6 +18,8 @@
       flake-registry = "";
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
+
+      eval-cores = 0;
     };
     channel.enable = false;
 
