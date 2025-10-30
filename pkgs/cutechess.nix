@@ -28,7 +28,9 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     qtbase
-  ];
+  ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin ([
+    qtsvg
+  ]);
 
   postInstall = ''
     install -Dm555 cutechess{,-cli} -t $out/bin/
