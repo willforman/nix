@@ -83,7 +83,7 @@ outer.right =      10
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget /Users/wforman/.nix-profile/bin/alacritty msg create window || open -n "$HOME/Applications/Home Manager Trampolines/Alacritty.app"'
+alt-enter = 'exec-and-forget $HOME/.nix-profile/bin/alacritty msg create-window || open -n "$HOME/Applications/Home Manager Trampolines/Alacritty.app"'
 alt-b = 'exec-and-forget open -n "$HOME/Applications/Home Manager Trampolines/Firefox.app"'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
