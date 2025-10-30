@@ -11,8 +11,6 @@
     };
   };
 
-  system.primaryUser = "will";
-  
   # services.yabai = {
   #   enable = true;
   #
