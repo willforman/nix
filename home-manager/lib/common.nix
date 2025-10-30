@@ -60,6 +60,7 @@
     fzf
     bat
     sqlite
+    claude-code
   ];
 
   programs.tmux = {
