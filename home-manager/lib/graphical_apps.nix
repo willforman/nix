@@ -19,6 +19,18 @@ in
       env = {
         TERM = "xterm-256color";
       };
+      keyboard.bindings = [
+        {
+          key = "Left";
+          mods = "Alt";
+          chars = "\\u001BB";
+        }
+        {
+          key = "Right";
+          mods = "Alt";
+          chars = "\\u001BF";
+        }
+      ];
       font = {
         size = 14.0;
         normal = {
