@@ -11,3 +11,8 @@ vim.opt.autoindent = true
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+vim.keymap.set('n', '<leader>cp', function()
+  local rel_path = vim.fn.expand('%:p:.')
+  vim.fn.setreg("+", rel_path)
+end, { desc = 'Copy relative path to clipboard' })
