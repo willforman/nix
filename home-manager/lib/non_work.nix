@@ -23,6 +23,10 @@
 
       pull.ff = true;
       init.defaultBranch = "main";
+      rerere = {
+        enabled = true;
+        autoupdate = true;
+      };
     };
   };
 
@@ -39,13 +43,13 @@
     ANTHROPIC_API_KEY = "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.anthropic-api-key.path})";
   };
 
-  programs.jujutsu = {
-    enable = true;
-    settings = {
-      user = {
-        name = "willforman";
-        email = "wf@willforman.com";
-      };
-    };
-  };
+  # programs.jujutsu = {
+  #   enable = true;
+  #   settings = {
+  #     user = {
+  #       name = "willforman";
+  #       email = "wf@willforman.com";
+  #     };
+  #   };
+  # };
 }
