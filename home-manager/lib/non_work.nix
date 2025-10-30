@@ -15,19 +15,10 @@
   };
 
   programs.git = {
-    enable = true;
-
     settings = {
       user = {
         name = "willforman";
         email = "wf8581@gmail.com";
-      };
-
-      pull.ff = true;
-      init.defaultBranch = "main";
-      rerere = {
-        enabled = true;
-        autoupdate = true;
       };
     };
   };

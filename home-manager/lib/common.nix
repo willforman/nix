@@ -44,6 +44,19 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  programs.git = {
+    enable = true;
+
+    settings = {
+      pull.ff = true;
+      init.defaultBranch = "main";
+      rerere = {
+        enabled = true;
+        autoupdate = true;
+      };
+    };
+  };
+
   home.packages = with pkgs; [
     lazygit
     difftastic
