@@ -25,7 +25,7 @@
     home-manager,
     darwin, 
     agenix,
-    mac-app-util,
+    # mac-app-util,
     determinate,
     ... 
     } @ inputs: let
@@ -72,7 +72,7 @@
               home = { inherit username homeDirectory; };
             }
             agenix.homeManagerModules.default
-            mac-app-util.homeManagerModules.default
+            # mac-app-util.homeManagerModules.default
           ];
         };
       in {
@@ -113,7 +113,7 @@
         system = "aarch64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
-          mac-app-util.darwinModules.default
+          # mac-app-util.darwinModules.default
           ./os/lib/common.nix
           ./os/darwin/common.nix
           ./os/darwin/${hostname}
