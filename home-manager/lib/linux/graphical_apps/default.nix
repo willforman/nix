@@ -13,7 +13,7 @@
   };
 
   home.packages = with pkgs; [
-    firefox-wayland
+    firefox
     obsidian
     pcmanfm
     thunderbird
