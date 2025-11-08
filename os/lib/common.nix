@@ -32,4 +32,6 @@
     vim
     wget
   ];
+
+  environment.pathsToLink = [ "/share/zsh" ];
 }
