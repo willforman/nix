@@ -1,7 +1,5 @@
 { config, pkgs, ...}:
 {
-  system.primaryUser = "will";
-
   home.packages = with pkgs; [
     ordo
     cutechess

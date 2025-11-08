@@ -6,6 +6,8 @@
     ../../lib/non_work.nix
   ];
 
+  system.primaryUser = "will";
+
   nix.enable = false;
 
   environment.systemPackages = with pkgs; [
