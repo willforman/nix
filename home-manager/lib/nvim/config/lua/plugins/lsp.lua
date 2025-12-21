@@ -45,6 +45,7 @@ local servers = {
   roc_ls = {},
   jdtls = {},
   clangd = {},
+  ty = {},
 }
 
 local function on_attach(client, bufnr)
