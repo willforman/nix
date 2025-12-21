@@ -9,4 +9,5 @@ in
   ];
 
   xdg.configFile."aerospace/aerospace.toml".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/aerospace/aerospace.toml";
+  xdg.configFile."aerospace/new_ghostty.sh".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/aerospace/new_ghostty.sh";
 }

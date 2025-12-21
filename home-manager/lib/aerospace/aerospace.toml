@@ -9,7 +9,7 @@ after-login-command = []
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -83,7 +83,8 @@ outer.right =      10
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-enter = 'exec-and-forget $HOME/.nix-profile/bin/alacritty msg create-window || open -n "$HOME/Applications/Home Manager Trampolines/Alacritty.app"'
+# alt-enter = 'exec-and-forget open -n "$HOME/Applications/Home Manager Trampolines/Ghostty.app"'
+alt-enter = 'exec-and-forget ~/.config/aerospace/new_ghostty.sh'
 alt-b = 'exec-and-forget open -n "$HOME/Applications/Home Manager Trampolines/Firefox.app"'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
