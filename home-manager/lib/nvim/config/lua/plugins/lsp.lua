@@ -43,9 +43,9 @@ local servers = {
   },
   fennel_ls = {},
   roc_ls = {},
-  jdtls = {},
   clangd = {},
   ty = {},
+  jdtls = {},
 }
 
 local function on_attach(client, bufnr)
@@ -103,7 +103,6 @@ return {
   end,
   --param ops PluginLspOpts
   config = function (_, opts)
-    local lspconfig = require("lspconfig")
     my_utils.lsp.setup()
 
     -- inlay hints
