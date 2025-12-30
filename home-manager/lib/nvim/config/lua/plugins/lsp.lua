@@ -48,6 +48,13 @@ local servers = {
   jdtls = {},
 }
 
+local diagnostics_icons = {
+  ERROR = " ",
+  WARN  = " ",
+  HINT  = " ",
+  INFO  = " ",
+}
+
 local function on_attach(client, bufnr)
   local wk = require('which-key')
 
@@ -88,6 +95,11 @@ return {
       --@type vim.diagnostic.Opts
       diagnostics = {
         underline = true,
+        virtual_text = {
+            spacing = 4,
+            source = "if_many",
+            prefix = "icons",
+        },
       },
       servers = servers,
       inlay_hints = {
@@ -128,6 +140,19 @@ return {
         })
       end)
     end
+
+    -- diagnostics
+    if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
+      opts.diagnostics.virtual_text.prefix = function(diagnostic)
+        for d, icon in pairs(diagnostics_icons) do
+          if diagnostic.severity == vim.diagnostic.severity[d] then
+            return icon
+          end
+        end
+        return "●"
+      end
+    end
+    vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
