@@ -87,7 +87,7 @@ return {
   "neovim/nvim-lspconfig",
   event = "UIEnter",
   dependencies = {
-   "hrsh7th/cmp-nvim-lsp",
+    'saghen/blink.cmp',
   },
   opts = function ()
     ---@class PluginLspOpts
@@ -155,7 +155,7 @@ return {
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
     local options = {
       on_attach = on_attach,

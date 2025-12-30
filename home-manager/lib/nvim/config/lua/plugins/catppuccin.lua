@@ -9,7 +9,9 @@ function M.config()
     flavour = "mocha",
     integrations = {
       alpha = true,
-      cmp = true,
+      blink_cmp = {
+        style = 'bordered'
+      },
       dap = true,
       dap_ui = true,
       diffview = true,
