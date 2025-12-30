@@ -42,6 +42,7 @@ in
           bash
           heex
           fennel
+          just
         ]
       ))
     ];
