@@ -175,7 +175,7 @@ function M.config()
     },
     lldb = {
       type = 'executable',
-      command = 'lldb-vscode',
+      command = 'lldb',
       aname = 'lldb'
     }
   }
