@@ -17,6 +17,8 @@
 
     mac-app-util.url = "github:hraban/mac-app-util";
     # mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
+
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
   outputs = { 
@@ -26,6 +28,7 @@
     darwin, 
     agenix,
     mac-app-util,
+    claude-code,
     determinate,
     ... 
     } @ inputs: let
