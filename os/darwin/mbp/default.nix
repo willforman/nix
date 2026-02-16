@@ -23,6 +23,7 @@
       "ticktick"
       "betterdisplay"
       "keymapp"
+      "tableplus"
     ];
   };
 }
