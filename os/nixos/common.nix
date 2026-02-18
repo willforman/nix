@@ -38,6 +38,11 @@
       PasswordAuthentication = false;
     };
   };
+  
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+  };
 
   services.resolved.enable = true;
   services.udisks2.enable = true;
