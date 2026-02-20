@@ -24,6 +24,7 @@
       "betterdisplay"
       "keymapp"
       "tableplus"
+      "tailscale"
     ];
   };
 }
