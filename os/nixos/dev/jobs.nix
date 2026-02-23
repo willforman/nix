@@ -2,7 +2,8 @@
 {
 systemd.services.jobs = {
     description = "Jobs app";
-    after = [ "network.target" ];
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     environment = {
       DB_PATH = "/home/will/code/jobs/jobs.sqlite3";
