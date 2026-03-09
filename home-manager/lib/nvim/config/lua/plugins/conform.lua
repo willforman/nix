@@ -10,7 +10,10 @@ function M.config()
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'isort', 'black' },
-      javascript = { { 'prettierd', 'prettier' } },
+      javascript = { 'prettierd', 'prettier' },
+      javascriptreact = { 'prettierd', 'prettier' },
+      typescriptreact = { 'prettierd', 'prettier' },
+      typescript = { 'prettierd', 'prettier' },
       rust = { 'rustfmt' },
     },
     -- Set up format-on-save

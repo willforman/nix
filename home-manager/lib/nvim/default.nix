@@ -37,6 +37,7 @@ in
           nix
           python
           rust
+          javascript
           typescript
           tsx
           bash
