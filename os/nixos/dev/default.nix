@@ -11,7 +11,7 @@
   networking.hostName = "dev-wf";
 
   # Keep laptop running when lid is shut
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
   boot.kernelParams = [ 
     "consoleblank=300" # Turn off screen in TTY
