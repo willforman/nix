@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./network.nix
-    ./jobs.nix
+    ./services.nix
     ../../lib/non_work.nix
   ];
 

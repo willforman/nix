@@ -21,4 +21,21 @@ systemd.services.jobs = {
       EnvironmentFile = "/home/will/code/jobs/.env";
     };
   };
+
+  systemd.services.network-index = {
+    description = "Network Index app";
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "simple";
+      User = "will";
+      WorkingDirectory = "/home/will/code/network-index";
+      ExecStart = "${pkgs.zola}/bin/zola serve --interface 0.0.0.0 --port 80";
+      AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+      Restart = "on-failure";
+      RestartSec = 5;
+      ReadWritePaths = [ "/home/will/code/network-index" ];
+    };
+  };
 }
