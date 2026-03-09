@@ -1,49 +1,21 @@
 { config, pkgs, lib, ... }:
-
-let 
-  ethInterfaceName = "enp0s20f0u2";
-  wireGuard = {
-    port = 51820;
-    path = config.users.users.will.home + "/.local/share/wireguard/";
-  };
-in
 {
-  # networking.nat = {
-  #   enable = true;
-  #   externalInterface = ethInterfaceName;
-  #   internalInterfaces = [ "wg0" ];
-  # };
-
-  # networking.wg-quick.interfaces = {
-  #   wg0 = {
-  #     address = [ "10.0.0.1/24" ];
-  #     listenPort = wireGuard.port;
-  #     privateKeyFile = "/home/will/.local/share/wireguard/private";#wireGuard.path + "private";
-  #
-  #     postUp = ''
-  #       ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
-  #     '';
-  #
-  #     postDown = ''
-  #       ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.0.0/24 -o ${ethInterfaceName} -j MASQUERADE
-  #     '';
-  #
-  #     peers = [
-  #       {
-  #         # mbp
-  #         publicKey = "Re8xcM/UKyhGNGpvyByPzReXqxgbTXfIi2aDjshXJ30=";
-  #         allowedIPs = [ "10.0.0.2/32" ];
-  #       }
-  #     ];
-  #   };
-  # };
+  networking.interfaces.enp0s20f0u2c2 = {
+    useDHCP = false;
+    ipv4.addresses = [{
+      address = "192.168.1.7";
+      prefixLength = 24;
+    }];
+  };
+  networking.defaultGateway = "192.168.1.1";
+  networking.nameservers = [ "9.9.9.10" "149.112.112.10" ];
 
   services.adguardhome = {
     enable = true;
     mutableSettings = false;
     openFirewall = true;
 
-    host = "192.168.1.7";
+    host = "0.0.0.0";
     port = 3000;
 
     settings = {
