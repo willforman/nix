@@ -2,3 +2,7 @@ theme = Catppuccin Mocha
 
 font-thicken = true
 font-size = 15
+
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
