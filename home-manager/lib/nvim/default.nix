@@ -28,6 +28,7 @@ in
         plugins: with plugins; [
           lua
           c
+          cpp
           css
           elixir
           go

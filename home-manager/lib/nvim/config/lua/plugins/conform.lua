@@ -15,6 +15,7 @@ function M.config()
       typescriptreact = { 'prettierd', 'prettier' },
       typescript = { 'prettierd', 'prettier' },
       rust = { 'rustfmt' },
+      cpp = { 'clang-format' },
     },
     -- Set up format-on-save
     format_on_save = { timeout_ms = 500, lsp_fallback = false },

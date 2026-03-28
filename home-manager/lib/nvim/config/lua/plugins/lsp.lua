@@ -43,7 +43,12 @@ local servers = {
   },
   fennel_ls = {},
   roc_ls = {},
-  clangd = {},
+  clangd = {
+    cmd = {
+      'clangd',
+      '--query-driver=/nix/store/*/bin/clang++,/nix/store/*/bin/clang',
+    }
+  },
   ty = {},
   jdtls = {},
 }
