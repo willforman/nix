@@ -47,6 +47,8 @@
   programs.git = {
     enable = true;
 
+    signing.format = null;
+
     settings = {
       pull.ff = true;
       init.defaultBranch = "main";
