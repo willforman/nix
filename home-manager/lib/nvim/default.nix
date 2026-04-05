@@ -18,7 +18,7 @@ in
       lua-language-server
       fennel-ls
       sqlite
-      nodePackages.bash-language-server
+      bash-language-server
     ];
 
     plugins = with pkgs.vimPlugins; [
