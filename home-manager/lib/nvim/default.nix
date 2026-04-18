@@ -51,7 +51,6 @@ in
   };
 
   xdg.configFile."nvim".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/config";
-  xdg.configFile."fennel/fennelrc".source = mkOutOfStoreSymlink "${config.home.homeDirectory}/code/nix/home-manager/lib/nvim/fennelrc.fnl";
 
   home.sessionVariables = {
     MANPAGER = "nvim -c 'Man!' -o -";
