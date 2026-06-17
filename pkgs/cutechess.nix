@@ -8,7 +8,7 @@
 }:
 
 let
-  inherit (pkgs.libsForQt5.qt5) qtbase qtsvg wrapQtAppsHook;
+  inherit (pkgs.qt5) qtbase qtsvg wrapQtAppsHook;
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "cutechess";

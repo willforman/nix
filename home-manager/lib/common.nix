@@ -34,6 +34,7 @@
       permittedInsecurePackages = [
         "nodejs-16.20.0"
         "nodejs-16.20.2"
+        "electron-39.8.10"
       ];
     };
   };

@@ -21,10 +21,9 @@
 
     casks = [
       "ticktick"
-      "betterdisplay"
       "keymapp"
       "tableplus"
-      "tailscale"
+      "tailscale-app"
     ];
   };
 }

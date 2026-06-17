@@ -1,5 +1,6 @@
 return {
   'saghen/blink.cmp',
+  branch = 'v1',
   event = 'InsertEnter',
   dependencies = { 'rafamadriz/friendly-snippets' },
   build = 'nix run .#build-plugin',
