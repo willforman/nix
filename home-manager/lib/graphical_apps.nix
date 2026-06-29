@@ -20,5 +20,6 @@ in
 
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox"; # Only necessary until home.stateVersion is bumped past 26.05.
   };
 }
