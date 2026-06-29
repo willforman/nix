@@ -3,6 +3,7 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    package = null;  # Use system Sway from programs.sway instead
     wrapperFeatures.gtk = true;
     checkConfig = false;
     config = {
