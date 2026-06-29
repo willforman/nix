@@ -8,7 +8,7 @@
     checkConfig = false;
     config = {
       modifier = "Mod1";
-      terminal = "alacritty";
+      terminal = "ghostty";
       menu = "wofi --show run";
       bars = [];
       output = {
