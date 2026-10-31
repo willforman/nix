@@ -25,5 +25,6 @@
       "tableplus"
       "tailscale-app"
     ];
+    onActivation.cleanup = "uninstall";
   };
 }
