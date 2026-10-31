@@ -60,7 +60,7 @@ in
 
   home.sessionVariables = {
     MANPAGER = "nvim -c 'Man!' -o -";
-    LIBSQLITE = if pkgs.stdenv.isLinux then
+    LIBSQLITE = if pkgs.stdenv.hostPlatform.isLinux then
       "${pkgs.sqlite.out}/lib/libsqlite3.so"
     else
       "${pkgs.sqlite.out}/lib/libsqlite3.dylib";

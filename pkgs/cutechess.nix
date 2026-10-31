@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     qtbase
-  ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin ([
+  ] ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isDarwin ([
     qtsvg
   ]);
 
