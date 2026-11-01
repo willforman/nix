@@ -15,10 +15,8 @@
     mutableSettings = false;
     openFirewall = true;
 
-    host = "0.0.0.0";
-    port = 3000;
-
     settings = {
+      http.address = "0.0.0.0:3000";
       users = [{ 
         name = "admin";
         password = "$2y$05$M4mvpCUW.42d6F4IBgdsM.BsdxiP4WmkbDq4hGayQW09dc40HOunO";
